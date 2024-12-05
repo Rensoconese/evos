@@ -1,0 +1,83 @@
+---
+
+interface Props {
+    modalidad: string;
+    preparacion: string;
+    dinamica: string;
+    imagen?: ImageMetadata;
+}
+
+const { modalidad, preparacion, dinamica, imagen = null } = Astro.props;
+---
+
+<section class="comosejuega">
+    <h2>¿Cómo se juega?</h2>
+    <div class="comosejuega__grid">
+        <dl>
+            <dt style="color: var(--aqua);">Modalidad</dt>
+            <dd style="white-space: pre-line; line-height: 2rem">{modalidad}</dd>
+        </dl>
+        <dl>
+            <dt style="color: var(--aqua);">Preparación</dt>
+            <dd style="white-space: pre-line; line-height: 2rem">{preparacion}</dd>
+        </dl>
+        <dl>
+            <dt style="color: var(--aqua);">Dinámica</dt>
+            <dd style="white-space: pre-line; line-height: 2rem">{dinamica}</dd>
+        </dl>
+    </div>
+    
+</section>
+
+<style is:global>
+.comosejuega {
+    max-width: 90rem;
+    margin: 0 auto;
+    margin-bottom: 400px;
+}
+
+.comosejuega h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.comosejuega__imagen {
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 300px;
+}
+
+.comosejuega__imagen img {
+    position: absolute;
+}
+
+dl {
+    border: 1px solid;
+    border-radius: clamp(1rem, 3vw, 2rem);
+    padding: clamp(1rem, 3vw, 2rem);
+    margin: 0;
+    width: 100%;
+}
+
+dt {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--dt-color);
+}
+
+dd {
+    margin: 0;
+}
+
+.comosejuega__img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+
+
+</style>

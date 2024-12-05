@@ -1,0 +1,90 @@
+---
+interface Props {
+    titulo: string;
+    bajada: string;
+    imagen: string;
+    imagenAlt: string;
+    invertido?: boolean;
+}
+
+const { titulo, bajada, imagen, imagenAlt, invertido = false } = Astro.props;
+---
+
+<article class={`diferencia-item ${invertido ? 'invertido' : ''}`}>
+    <div class="contenido">
+        <h3>{titulo}</h3>
+        <p>{bajada}</p>
+    </div>
+    <div class="imagen">
+        <img src={imagen} alt={imagenAlt} />
+    </div>
+</article>
+
+<style>
+    .diferencia-item {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+        align-items: center;
+        margin: 6rem auto;
+        max-width: 1200px;
+        padding: 0 1rem;
+    }
+
+    .diferencia-item.invertido .contenido {
+        grid-column: 2;
+    }
+
+    .diferencia-item.invertido .imagen {
+        grid-column: 1;
+        grid-row 1;
+        
+    }
+
+    .contenido {
+        text-align: left;
+        grid-column: 1;
+    }
+
+    .imagen {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin: 0 0 1rem 0;
+    }
+
+    p {
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .diferencia-item {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 4rem auto;
+        }
+
+        .diferencia-item.invertido .contenido,
+        .diferencia-item.invertido .imagen,
+        .contenido,
+        .imagen {
+            grid-column: 1;
+           
+        }
+
+        .imagen {
+            order: -1;
+        }
+    }
+</style>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="100%" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- Primera fila -->
+  <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+  <circle cx="300" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+  <circle cx="500" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+  <circle cx="700" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+  
+  <!-- Segunda fila -->
+  <circle cx="100" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+  <circle cx="300" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+  <circle cx="500" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+  <circle cx="700" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+</svg>

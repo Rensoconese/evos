@@ -1,0 +1,71 @@
+---
+interface Props {
+    juegos: {
+        nombre: string;
+        imagen: string;
+        link: string;
+    }[];
+}
+
+const { juegos } = Astro.props;
+---
+
+<section class="otros-juegos">
+    <h2>OTROS JUEGOS DE EVOS<br />QUE TE PUEDEN INTERESAR</h2>
+    <div class="juegos-grid">
+        {
+            juegos.map((juego) => (
+                <a href={juego.link} class="juego-item">
+                    <img src={juego.imagen} alt={juego.nombre} />
+                    <h3>{juego.nombre}</h3>
+                </a>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .otros-juegos {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .juegos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .juego-item {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .juego-item:hover {
+        transform: scale(1.05);
+    }
+
+    .juego-item img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        margin: 0;
+    }
+</style>

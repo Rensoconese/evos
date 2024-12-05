@@ -1,0 +1,72 @@
+---
+---
+
+<article>
+    <header>
+        <h2>Hecho en Argentina</h2>
+    </header>
+    <p>Evos es un emprendimiento de diseño, fabricación y comercialización de juegos y juguetes inclusivos.</p>
+    <p>Todas las personas deberíamos de poder jugar, por en eso en Evos buscamos crear juegos que no dejen a nadie a fuera. Porque si jugamos todos, es más divertido.</p>
+
+    <hr>
+
+    <footer>
+        <img src="/images/perfil1.jpg" alt="Foto de Maximiliano Carrizo">
+        <div>
+            <p class="nombre">Maximiliano Carrizo</p>
+            <p>Fundador de EVOS</p>
+        </div>
+        <img src="/images/perfil2.jpg" alt="Logo de EVOS">
+    </footer>
+</article>
+
+<style>
+    article {
+        max-width: 36rem;
+        margin: 0 auto;
+        border-radius: 2rem;
+        background-color: var(--cremita);
+        display: grid;
+        gap: 2rem;
+        text-align: center;
+        padding: var(--padding-fluid);
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        margin: 0;
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    footer img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    footer div {
+        display: grid;
+        gap: 0.25rem;
+    }
+
+    .nombre {
+        font-family: 'Komet', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    footer p {
+        font-family: 'Komet', sans-serif;
+        font-size: 1rem;
+        font-weight: 200;
+        margin: 0;
+    }
+</style>

@@ -1,0 +1,50 @@
+---
+import { SEO } from "astro-seo";
+import "../styles/global.css";
+---
+
+<html>
+  <head><SEO
+    title="Evos, juegos inclusivos diseñados para estimular los sentidos"
+    description="A heavily optimized description full of well-researched keywords."
+    openGraph={{
+      basic: {
+        title: "A Very Descriptive Title",
+        type: "A type.",
+        image: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+      }
+    }}
+    twitter={{
+      creator: "@shinyoctopus"
+    }}
+    extend={{
+      // extending the default link tags
+      link: [{ rel: "icon", href: "/favicon.ico" }],
+      // extending the default meta tags
+      meta: [
+        {
+          name: "twitter:image",
+          content: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+        },
+        { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
+        { name: "twitter:description", content: "Agent" },
+      ],
+    }}
+  />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.typekit.net/bfo3lly.css">
+
+  </head>
+  <body>
+    <main class="container">
+        <h1>Título Principal (H1)</h1>
+        <h2>Subtítulo (H2)</h2>
+        <h3>Encabezado nivel 3 (H3)</h3>
+        <h4>Encabezado nivel 4 (H4)</h4>
+
+        <p>Este es un párrafo de ejemplo para visualizar los estilos globales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+        <p>Otro párrafo con un <a href="#">enlace de ejemplo</a> para ver cómo se ven los enlaces con los estilos globales.</p>
+    </main>
+  </body>
+</html>

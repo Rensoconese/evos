@@ -1,0 +1,72 @@
+---
+interface Props {
+    titulo: string;
+    mercadoLibreLink: string;
+}
+
+const { titulo, mercadoLibreLink } = Astro.props;
+const whatsappNumber = "+5491166280074";
+const whatsappLink = `https://wa.me/${whatsappNumber}`;
+---
+
+<section class="donde-compro">
+    <h2>{titulo}</h2>
+    <p>Elegí el canal que prefieras para hacer tu compra</p>
+    
+    <div class="canales">
+        <a href={mercadoLibreLink} class="canal" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm1.614 17.982h-2.4c-.728 0-1.32-.594-1.32-1.32v-4.44c0-.728.592-1.32 1.32-1.32h2.4c2.052 0 3.72 1.668 3.72 3.72s-1.668 3.36-3.72 3.36zm0-5.76h-2.4v4.44h2.4c1.224 0 2.22-.996 2.22-2.22s-.996-2.22-2.22-2.22zM7.8 8.9c0-.728.592-1.32 1.32-1.32h5.76c.728 0 1.32.592 1.32 1.32 0 .728-.592 1.32-1.32 1.32H9.12c-.728 0-1.32-.592-1.32-1.32z"/>
+            </svg>
+            <span>Mercado Libre</span>
+        </a>
+        
+        <a href={whatsappLink} class="canal" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.784 23.456l4.5-1.442A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm-1.5 5.25c-.414 0-.75.336-.75.75v3.75c0 .414.336.75.75.75h3c.414 0 .75-.336.75-.75V6c0-.414-.336-.75-.75-.75h-3zm6.75 3.75c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6z"/>
+            </svg>
+            <span>WhatsApp</span>
+        </a>
+    </div>
+</section>
+
+<style>
+    .donde-compro {
+        text-align: center;
+        padding: 4rem 2rem;
+        max-width: 36rem;
+        margin: 0 auto;
+    }
+
+    .canales {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .canal {
+        display: grid;
+        grid-template-rows: auto auto;
+        justify-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease;
+    }
+
+    .canal:hover {
+        transform: translateY(-4px);
+    }
+
+    .canal svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .canal span {
+        font-family: 'Komet', sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+</style>

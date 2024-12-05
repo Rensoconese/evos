@@ -1,0 +1,88 @@
+---
+interface Props {
+    tituloFichas: string;
+    textoFichas: string;
+    tituloTablero: string;
+    textoTablero: string;
+    tituloManuales: string;
+    textoManuales: string;
+}
+
+const { 
+    tituloFichas = "Fichas",
+    textoFichas,
+    tituloTablero = "Tablero",
+    textoTablero,
+    tituloManuales = "Manuales",
+    textoManuales
+} = Astro.props;
+---
+
+<section class="contenidocaja">
+    <h2>¿Qué contiene la caja?</h2>
+    <div class="contenidocaja__grid">
+        <dl>
+            <dt>{tituloFichas}</dt>
+            <dd>{textoFichas}</dd>
+        </dl>
+        <dl>
+            <dt>{tituloTablero}</dt>
+            <dd>{textoTablero}</dd>
+        </dl>
+        <dl>
+            <dt>{tituloManuales}</dt>
+            <dd>{textoManuales}</dd>
+        </dl>
+    </div>
+</section>
+
+<style>
+.contenidocaja {
+    border-radius: 2rem;
+    margin: 0 auto;
+    padding: var(--padding-fluid);
+}
+
+.contenidocaja h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.contenidocaja__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+dl {
+    margin: 0;
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+dl:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+}
+
+dt {
+    font-family: var(--titles);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+dd {
+    margin: 0;
+    line-height: 1.5;
+}
+
+</style>

@@ -1,0 +1,25 @@
+---
+interface Props {
+    texto: string;
+}
+
+const { texto } = Astro.props;
+---
+
+<p class="frase">{texto}</p>
+
+<style>
+.frase {
+    /* 100px a rem (considerando que 1rem = 16px) */
+    /* Usando clamp para hacer el tamaño responsive entre 3rem y 6.25rem */
+    font-size: clamp(1rem, 5vw + 1rem, 6.25rem);
+    line-height: 1; /* 100% */
+    letter-spacing: -0.04em; /* -4% */
+    font-family: var(--titles);
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: var(--padding-fluid);
+    max-width: 90rem;
+    margin: 0 auto;
+}
+</style>

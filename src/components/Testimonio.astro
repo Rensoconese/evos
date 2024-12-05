@@ -1,0 +1,93 @@
+---
+interface Props {
+    cita: string;
+    imagen: string;
+    nombre: string;
+    cargo: string;
+    cargoLink?: string;
+}
+
+const { cita, imagen, nombre, cargo, cargoLink } = Astro.props;
+---
+
+<div class="testimonio">
+    <blockquote class="cita">
+        {cita}
+    </blockquote>
+    <footer class="perfil">
+        <img src={imagen} alt={`Foto de ${nombre}`} />
+        <div class="info">
+            <p class="nombre">{nombre}</p>
+            {cargoLink ? (
+                <a href={cargoLink} class="cargo">{cargo}</a>
+            ) : (
+                <p class="cargo">{cargo}</p>
+            )}
+        </div>
+    </footer>
+</div>
+
+<style>
+    .testimonio {
+        border-radius: 1.5rem;
+        padding: 2rem;
+        color: white;
+        display: grid;
+        grid-template-rows: auto auto;
+        gap: 2rem;
+        max-width: 36rem;
+        border-radius: 2rem;
+         margin: 0 auto;
+         padding: var(--padding-fluid);
+         
+    }
+
+    .cita {
+        font-family: 'IvyOra Display', serif;
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        font-weight: 500;
+        line-height: 1.2;
+        font-style: italic;
+        margin: 0;
+    }
+
+    .perfil {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .perfil img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .info {
+        display: grid;
+        gap: 0.25rem;
+    }
+
+    .nombre {
+        font-family: 'Komet', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0;
+        color: white;
+    }
+
+    .cargo {
+        font-family: 'Komet', sans-serif;
+        font-size: 1rem;
+        font-weight: 200;
+        margin: 0;
+        color: white;
+        text-decoration: none;
+    }
+
+    .cargo:hover {
+        text-decoration: underline;
+    }
+</style>

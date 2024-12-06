@@ -1,13 +1,16 @@
 ---
+import { Picture } from 'astro:assets';
+import imagenSrc from '../assets/images/tesuena/tesuena-ficha.png';
+import flecha from '../assets/images/flecha.svg';
+
 interface Props {
     titulo: string;
     bajada: string;
-    imagen: string;
     imagenAlt: string;
     invertido?: boolean;
 }
 
-const { titulo, bajada, imagen, imagenAlt, invertido = false } = Astro.props;
+const { titulo, bajada, imagenAlt, invertido = false } = Astro.props;
 ---
 
 <article class={`diferencia-item ${invertido ? 'invertido' : ''}`}>
@@ -15,29 +18,38 @@ const { titulo, bajada, imagen, imagenAlt, invertido = false } = Astro.props;
         <h3>{titulo}</h3>
         <p>{bajada}</p>
     </div>
-    <div class="imagen">
-        <img src={imagen} alt={imagenAlt} />
+    <div class="pieza">
+        <Picture
+            src={imagenSrc}
+            alt={imagenAlt}
+            widths={[320, 360]}
+            sizes="(max-width: 360px) 320px, 360px"
+            formats={['webp', 'avif', 'png']}
+            class="pieza__item"
+        />
     </div>
+    
 </article>
 
 <style>
     .diferencia-item {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 4rem;
+        gap: 8rem;
         align-items: center;
-        margin: 6rem auto;
+        margin: 0 auto;
         max-width: 1200px;
         padding: 0 1rem;
+        position: relative;
     }
 
     .diferencia-item.invertido .contenido {
         grid-column: 2;
     }
 
-    .diferencia-item.invertido .imagen {
+    .diferencia-item.invertido .pieza {
         grid-column: 1;
-        grid-row 1;
+        grid-row: 1;
         
     }
 
@@ -46,26 +58,44 @@ const { titulo, bajada, imagen, imagenAlt, invertido = false } = Astro.props;
         grid-column: 1;
     }
 
-    .imagen {
+    .pieza {
         grid-column: 2;
         grid-row: 1;
     }
 
-    h3 {
-        font-size: 1.5rem;
-        margin: 0 0 1rem 0;
-    }
+  
 
-    p {
-        margin: 0;
-        line-height: 1.5;
-    }
-
-    img {
+    .pieza__item {
         width: 100%;
+        max-width: 160px;
         height: auto;
-        border-radius: 8px;
+    }
+
+    
+
+  
+
+    .diferencia-item::after {
+        content: url('../assets/images/flecha.png');
         display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 30px; /* Ajusta el ancho según sea necesario */
+        height: 30px;
+        
+    }
+
+    .diferencia-item:nth-of-type(odd)::after {
+        transform: translate(-150%, 150%) rotate(45deg) scale(0.5);
+    }
+
+    .diferencia-item:nth-of-type(even)::after {
+        transform: translate(-150%, 150%) scale(0.5) rotate(-45deg) scaleX(-1);
+    }
+
+    .diferencia-item:last-of-type::after {
+        display: none;
     }
 
     @media (max-width: 768px) {
@@ -76,15 +106,19 @@ const { titulo, bajada, imagen, imagenAlt, invertido = false } = Astro.props;
         }
 
         .diferencia-item.invertido .contenido,
-        .diferencia-item.invertido .imagen,
+        .diferencia-item.invertido .pieza,
         .contenido,
-        .imagen {
+        .pieza {
             grid-column: 1;
            
         }
 
-        .imagen {
+        .pieza {
             order: -1;
+        }
+        
+        .diferencia-item::after {
+            display: none;
         }
     }
 </style>

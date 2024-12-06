@@ -33,7 +33,7 @@ const { modalidad, preparacion, dinamica, imagen = null } = Astro.props;
 .comosejuega {
     max-width: 90rem;
     margin: 0 auto;
-    margin-bottom: 400px;
+    margin-bottom: clamp(10rem, 40vw, 30rem);
 }
 
 .comosejuega h2 {
@@ -43,8 +43,8 @@ const { modalidad, preparacion, dinamica, imagen = null } = Astro.props;
 
 .comosejuega__grid {
     display: grid;
-    grid-template-columns: repeat(3fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1rem;
     }
 
 .comosejuega__imagen {
@@ -59,7 +59,7 @@ const { modalidad, preparacion, dinamica, imagen = null } = Astro.props;
     position: absolute;
 }
 
-dl {
+.comosejuega dl {
     border: 1px solid;
     border-radius: clamp(1rem, 3vw, 2rem);
     padding: clamp(1rem, 3vw, 2rem);
@@ -84,6 +84,10 @@ dd {
     border-radius: 1rem;
 }
 
-
+@media screen and (max-width: 840px){
+     .comosejuega__grid {
+        grid-template-columns: 1fr; 
+    }
+};
 
 </style>

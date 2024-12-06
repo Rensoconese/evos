@@ -92,3 +92,21 @@ max-width: 100%;
 section {padding: 0;
   margin: 0;
 }
+main {display: grid;
+  grid-template-columns: 100%;
+  row-gap: 4rem;
+}
+
+.diferencia-item {
+  position: relative;
+}
+
+.diferencia-item::after {
+  content: url('../assets/images/flecha.png');
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}

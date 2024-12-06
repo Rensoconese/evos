@@ -1,4 +1,5 @@
 ---
+import Layout from '../layouts/Layout.astro';
 import { SEO } from "astro-seo";
 import "../styles/global.css";
 import Comosejuega from '../components/Comosejuega.astro';
@@ -13,15 +14,13 @@ import OtrosJuegos from '../components/OtrosJuegos.astro';
 import { Image, Picture } from 'astro:assets';
 import tesuenaFicha from '../assets/images/tesuena/tesuena-ficha.png';
 import tablerotesuena from '../assets/images/tesuena/tablerotesuena.png';
+import tesuenaFichas from '../assets/images/tesuena/tesuena-fichas.png';
+import cajatesuena from '../assets/images/tesuena/caja_tesuena.png';
 
 const textos = {
-  modalidad: `Pueden jugar de 2 a 4 personas.
-Básica: 1 tablero, 4 pares de fichas.
-Avanzada: 2 tableros, 8 pares de fichas.`,
-  preparacion: `Coloca los pares de fichas en el tablero de forma aleatoria,con el relieve numérico hacia abajo.`,
-  dinamica: `Por turnos, cada jugador elige y agita dos fichas para descubrir sus sonidos.
-Si coinciden, forma una pareja y juega de nuevo. Si son distintas, vuelven al tablero.
-Gana quien más pares logre juntar.`,
+  modalidad: "Pueden jugar de 2 a 4 personas.\nBásica: 1 tablero, 4 pares de fichas.\nAvanzada: 2 tableros, 8 pares de fichas.",
+  preparacion: "Coloca los pares de fichas en el tablero de forma aleatoria,con el relieve numérico hacia abajo.",
+  dinamica: "Por turnos, cada jugador elige y agita dos fichas para descubrir sus sonidos.\nSi coinciden, forma una pareja y juega de nuevo. Si son distintas, vuelven al tablero.\nGana quien más pares logre juntar.",
 }
 
 const frase = "Un juego que demuestra que la diversión no conoce límites cuando el oído es el protagonista.";
@@ -43,32 +42,32 @@ const textosDiferencias = {
 const itemsDiferencias = [
     {
         titulo: "Es un juego inclusivo y adaptativo",
-        bajada: "Para niños y niñas mayores a 3 años de edad. Para adultos mayores, ayuda a ejercitar el cerebro, contribuyendo a la prevención de enfermedades relacionadas con la memoria. “Te suena” es un juego accesible para personas con discapacidad visual.",
-        imagen: "/images/diferencia1.jpg",
+        bajada: "Para niños y niñas mayores a 3 años de edad. Para adultos mayores, ayuda a ejercitar el cerebro, contribuyendo a la prevención de enfermedades relacionadas con la memoria. Te suena es un juego accesible para personas con discapacidad visual.",
+        imagen: "src/assets/images/tesuena/tesuena-ficha.png",
         imagenAlt: "Desarrollo sensorial auditivo"
     },
     {
-        titulo: " Es ideal para aplicación terapéutica",
-        bajada: "Te Suena ayuda a interactuar con pacientes desde lo lúdico. Se adapta perfectamente a sesiones de terapia ocupacional tanto con niños como con adultos. Beneficioso para usar en terapias de desarrollo como TEA",
-        imagen: "/images/diferencia2.jpg",
+        titulo: "Es una herramienta terapéutica",
+        bajada: "Te Suena ayuda a interactuar con pacientes desde lo lúdico. Se adapta perfectamente a sesiones de terapia ocupacional tanto con niños como con adultos. Beneficioso para usar en terapias de desarrollo como TEA",
+        imagen: "src/assets/images/tesuena/tesuena-ficha.png",
         imagenAlt: "Herramienta terapéutica"
     },
     {
-        titulo: "Fortalece las funciones cognitivas",
-        bajada: "Ayuda a la atención, la memoria y  las funciones ejecutivas. Desarrolla capacidades fundamentales para conductas eficaces, creativas y socialmente adaptadas. Potencia la orientación espacial y la asociación de estímulos auditivos",
-        imagen: "/images/diferencia3.jpg",
+        titulo: "Estimula el desarrollo cognitivo",
+        bajada: "Ayuda a la atención, la memoria y las funciones ejecutivas. Desarrolla capacidades fundamentales para conductas eficaces, creativas y socialmente adaptadas. Potencia la orientación espacial y la asociación de estímulos auditivos",
+        imagen: "src/assets/images/tesuena/tesuena-ficha.png",
         imagenAlt: "Inclusión y accesibilidad"
     },
     {
-        titulo: "Favorece la integración sensorial ",
+        titulo: "Desarrolla la integración sensorial",
         bajada: "Ayuda al cerebro a organizar e interpretar la información que recibe del entorno. Este proceso es fundamental para generar respuestas adaptadas a diferentes situaciones.",
-        imagen: "/images/diferencia4.jpg",
+        imagen: "src/assets/images/tesuena/tesuena-ficha.png",
         imagenAlt: "Aprendizaje lúdico"
     },
     {
-        titulo: "Ayuda al desarrollo auditivo",
+        titulo: "Estimula la iniciación musical",
         bajada: "Te Suena impulsa la iniciación musical mediante el reconocimiento de diferentes timbres. El timbre, como cualidad distintiva del sonido, permite identificar su origen. Esta capacidad de discriminación auditiva facilita la diferenciación entre sonidos de instrumentos musicales y cualidades vocales.",
-        imagen: "/images/diferencia5.jpg",
+        imagen: "src/assets/images/tesuena/tesuena-ficha.png",
         imagenAlt: "Experiencia multisensorial"
     }
 ];
@@ -109,116 +108,124 @@ const otrosJuegos = [
 
 ---
 
-<html>
-  <head>
-    <SEO
-      title="Te suena - Juego de memoria sensorial auditivo | Evos"
-      description="Te suena es un juego de memoria sensorial auditivo diseñado para estimular los sentidos"
-      openGraph={{
-        basic: {
-          title: "Te suena - Juego de memoria sensorial auditivo",
-          type: "website",
-          image: "URL_DE_TU_IMAGEN",
-        }
-      }}
-    />
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://use.typekit.net/bfo3lly.css">
-  </head>
-  <body>
-    <main class=" tesuena">
-
-      <div class="container-hero">
-        <div class="hero">
-          <h1>Te suena <span>Juego de memoria sensorial auditivo</span></h1>
-          <div class="hero__img-container">
-            <div class="hero__img">
-          <Picture 
-          src={tesuenaFicha} 
-          alt="Te suena - Juego de memoria sensorial auditivo" 
-          widths={[120, 320, 453]}
-          sizes="(max-width: 360px) 120px, (max-width: 768px) 300px, 453px"
-          formats={['webp', 'avif', 'png']}
-          class="hero__item"
-        />
-            </div> 
-            <div class="hero__pattern">
-            <svg width="100%" height="100%" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-            <!-- Primera fila -->
-            <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
-            <circle cx="300" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
-            <circle cx="500" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
-            <circle cx="700" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
-            
-            <!-- Segunda fila -->
-            <circle cx="100" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
-            <circle cx="300" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
-            <circle cx="500" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
-            <circle cx="700" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
-            </svg>
-            </div>
-          </div>
-       
-          <Comosejuega 
-              modalidad={textos.modalidad}
-              preparacion={textos.preparacion}
-              dinamica={textos.dinamica}
-          />
-        </div>
-        </div>
-
-        <div class="tablero">
-            <Picture
-                src={tablerotesuena}
-                alt="Tablero de Te Suena con 8 pares de fichas"
-                widths={[320, 800, 1300]}
-                sizes="(max-width: 360px) 320px, (max-width: 768px) 800px, 1300px"
-                formats={['webp', 'avif', 'png']}
-                class="tablero__item"
+<Layout 
+  title="Te suena - Juego de memoria sensorial auditivo | Evos"
+  description="Te suena es un juego de memoria sensorial auditivo diseñado para estimular los sentidos"
+  image="URL_DE_TU_IMAGEN"
+>
+  <main class="tesuena">
+    <div class="container-hero">
+      <div class="hero">
+        <h1>Te suena <span>Juego de memoria sensorial auditivo</span></h1>
+        <div class="hero__img-container">
+          <div class="hero__img">
+            <Picture 
+              src={tesuenaFicha} 
+              alt="Te suena - Juego de memoria sensorial auditivo" 
+              widths={[120, 320, 453]}
+              sizes="(max-width: 360px) 120px, (max-width: 768px) 300px, 453px"
+              formats={['webp', 'avif', 'png']}
+              class="hero__item"
             />
+          </div> 
+          <div class="hero__pattern">
+            <svg width="100%" height="100%" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+              <!-- Primera fila -->
+              <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="300" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="500" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="700" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              
+              <!-- Segunda fila -->
+              <circle cx="100" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="300" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="500" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="700" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+            </svg>
+          </div>
         </div>
-      
-        <Frase texto={frase} 
-        />
-        <ContenidodelaCaja 
-            tituloFichas={contenidoCaja.tituloFichas}
-            textoFichas={contenidoCaja.textoFichas}
-            tituloTablero={contenidoCaja.tituloTablero}
-            textoTablero={contenidoCaja.textoTablero}
-            tituloManuales={contenidoCaja.tituloManuales}
-            textoManuales={contenidoCaja.textoManuales}
-        />
-        <Diferencias
-          titulo={textosDiferencias.titulo}
-          bajada={textosDiferencias.bajada}
-        >
-            {itemsDiferencias.map((item, index) => (
-                <DiferenciaItem 
-                    {...item}
-                    invertido={index % 2 === 0}
-                />
-            ))}
-        </Diferencias>
-        {testimonios.map((testimonio) => (
-            <Testimonio {...testimonio} />
-        ))}
         
-        <DondeCompro 
-            titulo={dondeCompro.titulo}
-            mercadoLibreLink={mercadoLibreUrl}
+        <Comosejuega 
+          modalidad={textos.modalidad}
+          preparacion={textos.preparacion}
+          dinamica={textos.dinamica}
         />
-        
-        <HechoEnArgentina />
+      </div>
+    </div>
 
-        <OtrosJuegos juegos={otrosJuegos} />
-        
-    </main>
+    <div class="tablero">
+      <Picture
+        src={tablerotesuena}
+        alt="Tablero de Te Suena con 8 pares de fichas"
+        widths={[320, 800, 1300]}
+        sizes="(max-width: 360px) 320px , (max-width: 768px) 800px, 1300px"
+        formats={['webp', 'avif', 'png']}
+        class="tablero__item"
+      />
+    </div>
+  
+    <Frase texto={frase} />
+
+    <div class="fichas__img">
+      <Picture
+        src={tesuenaFichas}
+        alt="Tablero de Te Suena con 8 pares de fichas"
+        widths={[320, 800, 596]}
+        sizes="(max-width: 360px) 320px, (max-width: 768px) 800px, 596px"
+        formats={['webp', 'avif', 'png']}
+        class="tablero__item"
+      />
+    </div>
+
+
     
-  </body>
-</html>
+    <ContenidodelaCaja 
+      tituloFichas={contenidoCaja.tituloFichas}
+      textoFichas={contenidoCaja.textoFichas}
+      tituloTablero={contenidoCaja.tituloTablero}
+      textoTablero={contenidoCaja.textoTablero}
+      tituloManuales={contenidoCaja.tituloManuales}
+      textoManuales={contenidoCaja.textoManuales}
+    />
+ 
+    <div class="caja__container">
+    <Picture
+    src={cajatesuena}
+    alt="Tablero de Te Suena con 8 pares de fichas"
+    widths={[320, 500, 822]}
+    sizes="(max-width: 360px) 320px, (max-width: 768px) 500px, 822px"
+    formats={['webp', 'avif', 'png']}
+    class="caja__item"
+  />
+    </div>
+
+    <Diferencias
+      titulo={textosDiferencias.titulo}
+      bajada={textosDiferencias.bajada}
+    >
+      {itemsDiferencias.map((item, index) => (
+        <DiferenciaItem 
+          {...item}
+          invertido={index % 2 === 0}
+        />
+      ))}
+    </Diferencias>
+    
+    {testimonios.map((testimonio) => (
+      <Testimonio {...testimonio} />
+    ))}
+    
+    <DondeCompro 
+      titulo={dondeCompro.titulo}
+      mercadoLibreLink={mercadoLibreUrl}
+    />
+    
+    <HechoEnArgentina />
+    <OtrosJuegos juegos={otrosJuegos} />
+  </main>
+</Layout>
 
 <style>
-  
   /* Estilos generales */
   .tesuena :global(h1),
   .tesuena :global(h2),
@@ -230,21 +237,19 @@ const otrosJuegos = [
   h1 span {color: var(--text-color)}
 
   /* Comosejuega */
-  
   .comosejuega .tesuena :global(dt) {
     color: var(--aqua);
   }
 
-  .tesuena :global(dl) {
+  :global(.comosejuega__grid dl)  {
     border-color: var(--aqua);
   }
+
   /* Estilos para Hero */
-.hero{
-
-  display: grid;
+  .hero{
+    display: grid;
     gap: clamp(2rem, 5vw, 4rem);
-
-}
+  }
 
   .hero__img-container {
     position: relative;
@@ -265,6 +270,8 @@ const otrosJuegos = [
     width: 100%;
     aspect-ratio: 2/1;
     margin-top: clamp(-4rem, -10vw, -8rem);
+    background-position: center 0;
+    background-size: 100% auto;
   }
 
   .hero__pattern svg {
@@ -284,14 +291,38 @@ const otrosJuegos = [
   .tablero {
     max-width: 1300px;
     margin: 0 auto;
- 
-    transform: translateY(-50%);
+    padding: clamp(1rem, 3vw, 2rem);
+    transform: translateY(-60%);
    
   }
   .tablero__item {
     width: 100%;
     height: auto;
   }
+
+  .fichas__img {
+    width: 596px;
+    max-width: 60%;
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 2rem);
+  }
+
+  .caja__container {
+    background-color: var(--aqua); /* Cambia este color al que desees */
+    background-image: url('../assets/corte.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    transform: translateY(4rem);
+  }
+
+  .caja__item {
+    width: 822px;
+    max-width: 60%;
+    margin: 0 auto;
+    display: block;
+  }
+
   .hero {
     padding: clamp(1rem, 3vw, 2rem);
     background-color: var(--cremita);
@@ -301,8 +332,6 @@ const otrosJuegos = [
   .tesuena :global(.diferencias-container) {
     background-color: var(--cremita);
     padding: clamp(1rem, 3vw, 2rem);
-    
-    border-radius: 2rem;
   }
 
   .tesuena :global(.testimonio) {

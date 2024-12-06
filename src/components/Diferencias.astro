@@ -7,16 +7,22 @@ interface Props {
 const { titulo, bajada } = Astro.props;
 ---
 
+
 <section class="diferencias-container">
+<header>
     <h2>{titulo}</h2>
     <p class="bajada">{bajada}</p>
+</header>
     <slot />
 </section>
 
 <style>
     .diferencias-container {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        gap: clamp(4rem, 5vw, 18rem);
         text-align: center;
-        padding: 2rem 1rem;
+        
     }
 
     .diferencias-container h2 {
@@ -27,7 +33,9 @@ const { titulo, bajada } = Astro.props;
     }
 
     .bajada {
-        max-width: 800px;
-        margin: 0 auto 3rem auto;
+        max-width: 60rem;
+        margin: 0 auto;
     }
+
+ 
 </style>

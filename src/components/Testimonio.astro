@@ -1,7 +1,10 @@
 ---
+import type { GetStaticPaths } from "astro";
+import { Image } from 'astro:assets';
+
 interface Props {
     cita: string;
-    imagen: string;
+    imagen: ImageMetadata;
     nombre: string;
     cargo: string;
     cargoLink?: string;
@@ -10,12 +13,13 @@ interface Props {
 const { cita, imagen, nombre, cargo, cargoLink } = Astro.props;
 ---
 
+
 <div class="testimonio">
     <blockquote class="cita">
         {cita}
     </blockquote>
     <footer class="perfil">
-        <img src={imagen} alt={`Foto de ${nombre}`} />
+        <Image src={imagen} alt={`Foto de ${nombre}`} />
         <div class="info">
             <p class="nombre">{nombre}</p>
             {cargoLink ? (
@@ -28,25 +32,29 @@ const { cita, imagen, nombre, cargo, cargoLink } = Astro.props;
 </div>
 
 <style>
+ 
+
+
+
+
     .testimonio {
-        border-radius: 1.5rem;
-        padding: 2rem;
+       width: calc(100% - 2rem);
         color: white;
         display: grid;
-        grid-template-rows: auto auto;
+        
         gap: 2rem;
         max-width: 36rem;
         border-radius: 2rem;
          margin: 0 auto;
          padding: var(--padding-fluid);
-         
+       
     }
 
     .cita {
         font-family: 'IvyOra Display', serif;
         font-size: clamp(1.5rem, 5vw, 2rem);
         font-weight: 500;
-        line-height: 1.2;
+        line-height: 1.4;
         font-style: italic;
         margin: 0;
     }
@@ -63,11 +71,13 @@ const { cita, imagen, nombre, cargo, cargoLink } = Astro.props;
         height: 4rem;
         border-radius: 50%;
         object-fit: cover;
+        border: 1px solid white;
+        padding:0.2rem;
     }
 
     .info {
         display: grid;
-        gap: 0.25rem;
+        
     }
 
     .nombre {

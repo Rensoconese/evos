@@ -1,72 +1,97 @@
 ---
+import { Image } from 'astro:assets';
+import banderita from '../assets/images/bandera_argentina.png';
+import evosLogoVerde from '../assets/images/evos-logo-verde.png';
+import maximiliano from '../assets/images/maximiliano_carrizo.png';
 ---
 
-<article>
+<section class="hecho-en-argentina">
     <header>
         <h2>Hecho en Argentina</h2>
     </header>
-    <p>Evos es un emprendimiento de diseño, fabricación y comercialización de juegos y juguetes inclusivos.</p>
-    <p>Todas las personas deberíamos de poder jugar, por en eso en Evos buscamos crear juegos que no dejen a nadie a fuera. Porque si jugamos todos, es más divertido.</p>
+    <div>
+        <p>Evos es un emprendimiento de diseño, fabricación y comercialización de juegos y juguetes inclusivos.</p>
+        <p>Todas las personas deberíamos de poder jugar, por en eso en Evos buscamos crear juegos que no dejen a nadie a fuera. Porque si jugamos todos, es más divertido.</p>
+    </div>
+   
+  
+    <Image src={banderita} alt="Bandera argentina" width={125} height={80} class="banderita"/>
+    
 
-    <hr>
+    
 
     <footer>
-        <img src="/images/perfil1.jpg" alt="Foto de Maximiliano Carrizo">
+        <Image src={maximiliano} alt="Foto de Maximiliano Carrizo" />
         <div>
-            <p class="nombre">Maximiliano Carrizo</p>
+            <p>Maximiliano Carrizo</p>
             <p>Fundador de EVOS</p>
         </div>
-        <img src="/images/perfil2.jpg" alt="Logo de EVOS">
+        <Image src={evosLogoVerde} alt="Logo de EVOS" width={130} height={42.25} />
     </footer>
-</article>
+</section>
 
 <style>
-    article {
+    .hecho-en-argentina {
+        width: calc(100% - 2rem);   
         max-width: 36rem;
         margin: 0 auto;
         border-radius: 2rem;
         background-color: var(--cremita);
         display: grid;
-        gap: 2rem;
+        gap:clamp(1rem, 3vw, 2rem);
         text-align: center;
         padding: var(--padding-fluid);
+        grid-area:argentina3;
+        grid-row: argentina1 / argentina2;
+        height: 100%;
+        
     }
 
-    hr {
-        border: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        margin: 0;
+    
+
+    img.banderita{
+        grid-row: 1;
     }
+    
 
     footer {
         display: grid;
-        grid-template-columns: auto 1fr auto;
-        gap: 2rem;
-        align-items: center;
+        grid-template-columns: auto auto auto;
+        grid-auto-columns: max-content; 
+        gap:clamp(1rem, 3vw, 2rem);
+        place-self: center;
+    }
+    footer img {
+        place-self: center;
     }
 
-    footer img {
-        width: 4rem;
-        height: 4rem;
+    footer img:first-child {
+        width: clamp(3rem, 10vw, 5rem);
+        height: clamp(3rem, 10vw, 5rem);
         border-radius: 50%;
         object-fit: cover;
+        aspect-ratio: 1/1;
     }
 
     footer div {
         display: grid;
-        gap: 0.25rem;
+        place-self: center;
+        
     }
 
-    .nombre {
-        font-family: 'Komet', sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-    }
-
+   
     footer p {
         font-family: 'Komet', sans-serif;
+        text-align: left;
         font-size: 1rem;
-        font-weight: 200;
         margin: 0;
     }
+
+    .logo-container {
+        display: grid;
+        place-items: center;
+        margin: 2rem 0;
+    }
+
+   
 </style>

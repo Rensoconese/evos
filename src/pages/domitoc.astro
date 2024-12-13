@@ -12,106 +12,103 @@ import DondeCompro from '../components/DondeCompro.astro';
 import HechoEnArgentina from '../components/HechoEnArgentina.astro';
 import OtrosJuegos from '../components/OtrosJuegos.astro';
 import { Image } from 'astro:assets';
-import tesuenaFicha from '../assets/images/tesuena/tesuena-ficha.png';
-import tablerotesuena from '../assets/images/tesuena/tablerotesuena.png';
-import tesuenaFichas from '../assets/images/tesuena/tesuena-fichas.png';
-import cajatesuena from '../assets/images/tesuena/caja_tesuena.png';
-import flecha from '../assets/images/flecha-verde.png';
-import silvina from '../assets/images/tesuena/silvina_garcia.png';
-import cajamemotoc from '../assets/images/caja-memotoc.png';
-import cajadomitoc from '../assets/images/caja-domitoc.png';
+import domitocFicha from '../assets/images/domitoc/domitoc_fichas.png';
+import domitocFichas01 from '../assets/images/domitoc/domitoc_fichas_01.png';
+import domitocFichas02 from '../assets/images/domitoc/domitoc_fichas_02.png';
+import domitocCaja from '../assets/images/domitoc/domitoc_caja.png';
+import flecha from '../assets/images/flecha_verdeclaro.png';
+import calma from '../assets/images/domitoc/calmasalud.png';
+import ficha1 from '../assets/images/domitoc/domitoc_ficha_01.png';
+import ficha2 from '../assets/images/domitoc/domitoc_ficha_02.png';
+import ficha3 from '../assets/images/domitoc/domitoc_ficha_03.png';
+import ficha4 from '../assets/images/domitoc/domitoc_ficha_04.png';
+import cajatesuena from '../assets/images/caja-tesuena.png';
+import cajamemotoc from '../assets/images/caja-domitoc.png';
 import cajatateti from '../assets/images/caja-tateti.png';
 
 
 const textos = {
-  modalidad: "Pueden jugar de 2 a 4 personas.\nBásica: 1 tablero, 4 pares de fichas.\nAvanzada: 2 tableros, 8 pares de fichas.",
-  preparacion: "Coloca los pares de fichas en el tablero de forma aleatoria,con el relieve numérico hacia abajo.",
-  dinamica: "Por turnos, cada jugador elige y agita dos fichas para descubrir sus sonidos.\nSi coinciden, forma una pareja y juega de nuevo. Si son distintas, vuelven al tablero.\nGana quien más pares logre juntar.",
+  modalidad: "Pueden jugar de 2 a 4 personas.\nBásica: Se juega hasta 100 puntos.\nAvanzada: Se juega hasta 200 puntos. ",
+  preparacion: 'Se mezclan las fichas boca abajo y se reparten 7 a cada jugador. El resto queda como "pozo".',
+  dinamica: "El jugador con el doble más alto comienza. Si nadie tiene un doble, se coloca la ficha de mayor puntaje.\n\nEl siguiente jugador debe colar una ficha que iguale uno de los extremos de la primer ficha colocada. Si no tiene una ficha que coincida, debe tomar una ficha del “pozo” hasta poder jugar una.\n\n La partida termina cuando un jugador se queda sin fichas o si nadie puede jugar. En este último caso, gana quien tenga menos puntos.\n\nEl jugador o los jugadores que pierden deben anotar la sumatoria de puntos de sus fichas.\nGana quien no sobrepase los puntos definidos.   ",
 }
 
-const frase = "Un juego que demuestra que la diversión no conoce límites cuando el oído es el protagonista.";
+const frase = "Un juego que transforma el tacto en el protagonista. cada ficha ofrece una textura única para descubrir y emparejar.";
 
 const contenidoCaja = {
-    tituloFichas: "16 fichas",
-    textoFichas: "7 pares de fichas sonoras y  1 par sin sonido. Cada ficha tiene un relieve numérico para identificarlas.",
-    tituloTablero: "2 tableros",
-    textoTablero: "Para jugar en modalidad básica o avanzada.",
-    tituloManuales: "2 manuales",
-    textoManuales: "Un manual impreso y un manual en braile."
+    tituloFichas: "28 fichas",
+    textoFichas: "Todas las fichas tienen textura",
+    tituloTablero: "1 guía de puntajes",
+    textoTablero: "Impresa y en braile",
+    
 }
 
 const textosDiferencias = {
-  titulo: "¿Cuál es la diferencia con cualquier otro juego de memoria?",
-  bajada: "Te Suena integra múltiples dimensiones de desarrollo y aprendizaje. Es una herramienta única para el entretenimiento y para la terapia."
+  titulo: "¿Cuál es la diferencia con cualquier otro juego de Dominó?",
+  bajada: "Domitoc sirve para desarrollar la habilidad táctil. Cada ficha está texturizada, lo que lo convierte en una herramienta única para el entretenimiento y para la terapia."
 }
 
 const itemsDiferencias = [
     {
         titulo: "Es un juego inclusivo y adaptativo",
-        bajada: "Para niños y niñas mayores a 3 años de edad. Para adultos mayores, ayuda a ejercitar el cerebro, contribuyendo a la prevención de enfermedades relacionadas con la memoria. Te suena es un juego accesible para personas con discapacidad visual.",
-        imagen: tesuenaFicha,
+        bajada: "Para niños y niñas mayores a 3 años de edad. Para adultos mayores, ayuda a ejercitar el cerebro, contribuyendo a la prevención de enfermedades relacionadas con la memoria. Domitoc es un juego accesible para personas con discapacidad visual.",
+        imagen: ficha1,
         flecha: flecha,
         imagenAlt: "Desarrollo sensorial auditivo"
     },
     {
-        titulo: "Es una herramienta terapéutica",
-        bajada: "Te Suena ayuda a interactuar con pacientes desde lo lúdico. Se adapta perfectamente a sesiones de terapia ocupacional tanto con niños como con adultos. Beneficioso para usar en terapias de desarrollo como TEA",
-        imagen: tesuenaFicha,
+        titulo: "Es ideal para aplicación terapéutica",
+        bajada: "Domitoc ayuda a interactuar con pacientes desde lo lúdico. Se adapta perfectamente a sesiones de terapia ocupacional tanto con niños como con adultos. Beneficioso para usar en terapias de desarrollo como TEA",
+        imagen: ficha2,
         flecha: flecha,
         imagenAlt: "Herramienta terapéutica"
     },
     {
-        titulo: "Estimula el desarrollo cognitivo",
-        bajada: "Ayuda a la atención, la memoria y las funciones ejecutivas. Desarrolla capacidades fundamentales para conductas eficaces, creativas y socialmente adaptadas. Potencia la orientación espacial y la asociación de estímulos auditivos",
-        imagen: tesuenaFicha,
+        titulo: "Fortalece las funciones cognitivas",
+        bajada: "Ayuda a la atención, la memoria y las funciones ejecutivas. Desarrolla capacidades fundamentales para conductas eficaces, creativas y socialmente adaptadas. Potencia la orientación espacial.",
+        imagen: ficha3,
         flecha: flecha,
         imagenAlt: "Inclusión y accesibilidad"
     },
     {
-        titulo: "Desarrolla la integración sensorial",
+        titulo: "Favorece la integración sensorial",
         bajada: "Ayuda al cerebro a organizar e interpretar la información que recibe del entorno. Este proceso es fundamental para generar respuestas adaptadas a diferentes situaciones.",
-        imagen: tesuenaFicha,
+        imagen: ficha4,
         flecha: flecha,
         imagenAlt: "Aprendizaje lúdico"
     },
-    {
-        titulo: "Estimula la iniciación musical",
-        bajada: "Te Suena impulsa la iniciación musical mediante el reconocimiento de diferentes timbres. El timbre, como cualidad distintiva del sonido, permite identificar su origen. Esta capacidad de discriminación auditiva facilita la diferenciación entre sonidos de instrumentos musicales y cualidades vocales.",
-        imagen: tesuenaFicha,
-        flecha: flecha,
-        imagenAlt: "Experiencia multisensorial"
-    }
+    
 ];
 
 const testimonios = [
     {
-        cita: "Es un juego de memoria auditiva el cual favorece la escucha activa. Esta habilidad de escucha activa es la que se debe estimular en el desarrollo de habilidades de atención y son necesarias tanto para el desarrollo del lenguaje oral como para el desarrollo de la conciencia fonológica. La verdad este juego nos encantó", 
-        imagen: silvina,
-        nombre: "Lic. Silvina García",
-        cargo: "Neurolingüística, Apraxia",
-        cargoLink: "#"
+        cita: "Mis clientes, tanto aquellos con discapacidad visual como quienes no la tienen, disfrutan mucho jugando y aprendiendo al mismo tiempo.\n\n Es una herramienta muy versátil que me permite trabajar diferentes objetivos terapéuticos, como la percepción táctil, la coordinación mano-ojo, la resolución de problemas y la interacción sociaal.\n\nLa guía de puntajes en braille es una excelente idea para fomentar la autonomía de las personas con discapacidad visual.\n\n Dominó táctil es diversión y aprendizaje al alcance de todos", 
+        imagen: calma,
+        nombre: "Adriana Fernandez Albouy",
+        cargo: "Lic. en terapista ocupacional CALMA Salud @calma_salud",
+        cargoLink: "https://www.instagram.com/calma_salud/"
     }
 ];
 
-const mercadoLibreUrl = "https://articulo.mercadolibre.com.ar/MLA-1384686566-te-suena-juego-de-memoria-sensorial-auditivo-_JM";
+const mercadoLibreUrl = "https://articulo.mercadolibre.com.ar/MLA-1462549433-domino-tactil-domitoc-_JM";
 
 const dondeCompro = {
-    titulo: "¿Dónde puedo conseguir Te Suena?", 
+    titulo: "¿Dónde puedo conseguir Domitoc?", 
 };
 
 const otrosJuegos = [
     {
-        nombre: "MEMOTOC",
+        nombre: "Te suena",
+        imagen: cajatesuena.src, 
+        link: "/tesuena"
+    },
+    {
+        nombre: "Memotoc",
         imagen: cajamemotoc.src, 
         link: "/memotoc"
     },
     {
-        nombre: "DOMITOC",
-        imagen: cajadomitoc.src, 
-        link: "/domitoc"
-    },
-    {
-        nombre: "TATETI",
+        nombre: "Tateti",
         imagen: cajatateti.src, 
         link: "/tateti"
     }
@@ -128,12 +125,12 @@ const otrosJuegos = [
     
       <div class="hero">
         <div class="hero__title">
-          <h1>Te suena <span>Juego de memoria sensorial auditivo</span></h1>
+          <h1>Domitoc <span> Dominó táctil</span></h1>
         </div>
         <div class="hero__img-container">
           <div class="hero__img">
             <Image 
-              src={tesuenaFicha} 
+              src={domitocFicha} 
               alt="Te suena - Juego de memoria sensorial auditivo" 
               class="hero__item"
               width={453}
@@ -167,7 +164,7 @@ const otrosJuegos = [
       <div class="tablero-2"> </div>
       <div class="tablero-3"> 
         <Image
-        src={tablerotesuena}
+        src={domitocFichas01}
         alt="Tablero de Te Suena con 8 pares de fichas"
         width={1300}
         height={800}
@@ -186,7 +183,7 @@ const otrosJuegos = [
 
     <div class="fichas__img">
       <Image
-        src={tesuenaFichas}
+        src={domitocFichas02}
         alt="Tablero de Te Suena con 8 pares de fichas"
         width={596}
         height={400}
@@ -202,8 +199,7 @@ const otrosJuegos = [
       textoFichas={contenidoCaja.textoFichas}
       tituloTablero={contenidoCaja.tituloTablero}
       textoTablero={contenidoCaja.textoTablero}
-      tituloManuales={contenidoCaja.tituloManuales}
-      textoManuales={contenidoCaja.textoManuales}
+ 
     />
  
 
@@ -213,7 +209,7 @@ const otrosJuegos = [
     <div class="caja-3">
 
         <Image
-          src={cajatesuena}
+          src={domitocCaja}
           alt="Tablero de Te Suena con 8 pares de fichas"
           width={720}
           height={500}
@@ -270,26 +266,23 @@ const otrosJuegos = [
 
 
   /* Estilos generales */
-  .tesuena :global(h1),
+  .tesuena :global(h1){
+    color: var(--green);
+  }
   .tesuena :global(h2),
   .tesuena :global(h3),
   .tesuena :global(h4) {
-    color: var(--aqua);
+    color: var(--violet);
   }
 
   h1 span {color: var(--text-color)}
 
   /* Comosejuega */
   :global(.comosejuega__grid dt)  {
-    color: var(--aqua);
+    color: var(--green);
   }
-
-  .comosejuega .tesuena :global(dt) {
-    color: var(--aqua);
-  }
-
   :global(.comosejuega__grid dl)  {
-    border-color: var(--aqua);
+    border-color: var(--green);
   }
 
   /* Estilos para Hero */
@@ -335,18 +328,18 @@ const otrosJuegos = [
   .hero__pattern svg {
     width: 100%;
     height: 100%;
-    color: var(--aqua);
+    color: var(--green);
     z-index: 1;
   }
 
   .tesuena {
-    background-color: var(--aqua);
+    background-color: var(--green);
   }  
 
   /* Estilos para TABLERO */
   .tablero {
     width: 100%;
-    background-color: var(--aqua);
+    background-color: var(--green);
     margin: 0 auto;
     display: grid;
     grid-auto-columns: 100%;
@@ -369,7 +362,7 @@ const otrosJuegos = [
 
   .tablero-2 {
     grid-area: corte2;
-    background-color: var(--aqua);
+    background-color: var(--green);
     height: auto;
     position: relative;
     z-index: 1;
@@ -384,13 +377,12 @@ const otrosJuegos = [
   }
 
   .tablero__item {
- 
+   
     height: auto;
   }
 /* Estilos para FICHAS */
   .fichas__img {
-   padding: var(--padding-fluid);
-    
+    padding: var(--padding-fluid);
     margin: 0 auto;
     grid-row:fichas;
   }
@@ -398,7 +390,7 @@ const otrosJuegos = [
 /* Estilos para CAJA */
 .caja {
   width: 100%;
-  background-color: var(--aqua);
+  background-color: var(--green);
   margin: 0 auto;
   display: grid;
   grid-auto-columns: 100%;
@@ -413,11 +405,11 @@ const otrosJuegos = [
 
 .caja-1 {
   grid-area: corte1;
-  background-color: var(--aqua);
-  height: auto;
+  background-color: var(--green);
+ 
+ height: auto;
 
 }
-
 .caja-2 {
   grid-area: corte2;
   background-color: var(--cremita);
@@ -436,7 +428,7 @@ const otrosJuegos = [
 }
 
 .tesuena :global(.contenidocaja) {
-    background-color: #376B5C;
+    background-color: var(--violet);
   }
 
   .tesuena :global(.contenidocaja h2),
@@ -448,7 +440,7 @@ const otrosJuegos = [
   }
 
   :global(.juego-item){
-    background-color: #376B5C;
+    background-color: #744584;
   }
 
 /* Estilos para TESTIMONIOS */
@@ -476,7 +468,7 @@ const otrosJuegos = [
 }
 .testimonio_2 {
   grid-area: testimonio2;
-  background-color: var(--aqua);
+  background-color: var(--green);
   border-radius:4rem 4rem  0 0 ;
  height: auto;
 
@@ -495,8 +487,11 @@ const otrosJuegos = [
 
 
   .tesuena :global(.testimonio) {
-    background-color: #376B5C;
+    background-color:var(--violet);
   }
+
+
+
 
 /* Estilos para DONDECOMPRO */
   
@@ -510,7 +505,7 @@ const otrosJuegos = [
 
 .argentina_container{
   width: 100%;
-  background-color: var(--aqua);
+  background-color: var(--green);
   margin: 0 auto;
   display:grid;
   grid-area:argentina;
@@ -525,32 +520,34 @@ const otrosJuegos = [
 
   .argentina_1 {
   grid-area: argentina1;
-  background-color: var(--aqua);
+  background-color: var(--green);
  
  height: auto;
 
 }
 .argentina_2 {
   grid-area: argentina2;
-  background-color: #39897F;
+  background-color: var(--green-dark) ;
   border-radius:4rem 4rem 0 0 ;
  height: auto;
 
 }
 
 
-  /* Estilos para ContenidodelaCaja */
- 
-  ::global(.otros-juegos) {
+
+
+::global(.otros-juegos) {
         padding: var(--padding-fluid);
         text-align: center;
         display: grid;
         gap: 2rem;
         width: 100%;
-        background-color: #39897F;
+        background-color: var(--green-dark);
         margin: 0 auto;
         position: relative;
         grid-area:otrosjuegos;
     }
-
+::global(.juego-item) { 
+       background-color: var(--green-darker);
+}
 </style>

@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 /* Variables globales */
@@ -10,7 +11,11 @@
   --aqua: #3AA8A2;
   --orange: #FF7400;
   --violet: #8F66CE;
-  --green: #57D163;
+  --violet-dark: #6235A6;
+  --violet-darker: #432573;
+  --green: #47AC51;
+  --green-dark: #3B8D43;
+  --green-darker: #307337;
   --blue: #5A8CD2;
   --background-color: #ffffff;
   --cremita: #FFF8F5;
@@ -62,6 +67,9 @@ h2 {
   letter-spacing: -0.02em;
 }
 
+.bajada {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
 h3 {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   letter-spacing: -0.02em;
@@ -78,7 +86,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 
@@ -89,24 +97,32 @@ max-width: 100%;
   height: auto;
 }
 
-section {padding: 0;
+section {
+  padding: 0;
   margin: 0;
 }
-main {display: grid;
+
+/* 
+  The main element is structured as a grid layout with a single column spanning 100% width.
+  The rows are separated by a 4rem gap, and the grid automatically assigns columns of 1fr.
+  The grid-template-areas define the layout of various sections in a vertical manner:
+  "hero", "tablero", "frase", "fichas", "contenidocaja", "caja", "diferencias", 
+  "testimonios", "dondecompro", "argentina", and "otrosjuegos".
+*/
+main {
+  display: grid;
   grid-template-columns: 100%;
   row-gap: 4rem;
-}
-
-.diferencia-item {
-  position: relative;
-}
-
-.diferencia-item::after {
-  content: url('../assets/images/flecha.png');
-  display: block;
-  margin: 0 auto;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  grid-auto-columns: 1fr;
+  grid-template-areas: 
+    "hero"
+    "frase"
+    "fichas"
+    "contenidocaja"
+    "caja"
+    "diferencias"
+    "testimonios"
+    "dondecompro"
+    "argentina"
+    "otrosjuegos";
 }

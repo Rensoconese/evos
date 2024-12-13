@@ -11,49 +11,58 @@ const { juegos } = Astro.props;
 ---
 
 <section class="otros-juegos">
-    <h2>OTROS JUEGOS DE EVOS<br />QUE TE PUEDEN INTERESAR</h2>
+   
+    <h2>Otros juegos de evos que te pueden interesar</h2>
     <div class="juegos-grid">
         {
             juegos.map((juego) => (
+                <div class="juego-item">
                 <a href={juego.link} class="juego-item">
+                    <p>{juego.nombre}</p>
                     <img src={juego.imagen} alt={juego.nombre} />
-                    <h3>{juego.nombre}</h3>
                 </a>
+                </div>
             ))
         }
     </div>
 </section>
 
 <style>
-    .otros-juegos {
-        padding: 2rem 1rem;
-        text-align: center;
-    }
+   
+ 
 
-    h2 {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
+     .otros-juegos h2{
+        color: var(--background-color);
         text-align: center;
-    }
-
-    .juegos-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
+        max-width: 60rem;
+        width: 100%;
         margin: 0 auto;
     }
 
-    .juego-item {
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: transform 0.3s ease;
+    .juegos-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 0 auto;
+        max-width: 90rem;
+        overflow: hidden;
+       
     }
 
-    .juego-item:hover {
+
+    .juego-item {
+        display: grid;
+        place-items: center;
+    
+        border-radius: 50%;
+       overflow: hidden;
+       align-content: center;    
+       aspect-ratio: 1;
+    }
+   
+
+    .juego-item a:hover {
         transform: scale(1.05);
     }
 
@@ -61,11 +70,20 @@ const { juegos } = Astro.props;
         width: 100%;
         max-width: 250px;
         height: auto;
-        margin-bottom: 1rem;
+        
+
     }
 
-    h3 {
-        font-size: 1.25rem;
-        margin: 0;
+    .juego-item p {
+        text-transform: uppercase;
+        display: block;
+        font-family: var(--titles);
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--background-color);
+        margin:0;
     }
+
+
+   
 </style>

@@ -4,8 +4,8 @@ interface Props {
     textoFichas: string;
     tituloTablero: string;
     textoTablero: string;
-    tituloManuales: string;
-    textoManuales: string;
+    tituloManuales?: string;
+    textoManuales?: string;
 }
 
 const { 
@@ -17,7 +17,6 @@ const {
     textoManuales
 } = Astro.props;
 ---
-
 <section class="contenidocaja">
     <h2>¿Qué contiene la caja?</h2>
     <div class="contenidocaja__grid">
@@ -29,25 +28,31 @@ const {
             <dt>{tituloTablero}</dt>
             <dd>{textoTablero}</dd>
         </dl>
-        <dl>
-            <dt>{tituloManuales}</dt>
-            <dd>{textoManuales}</dd>
-        </dl>
+        {tituloManuales && textoManuales && (
+            <dl>
+                <dt>{tituloManuales}</dt>
+                <dd>{textoManuales}</dd>
+            </dl>
+        )}
     </div>
 </section>
 
 <style>
+    
+
+
 .contenidocaja {
-    width: 36rem;
-    max-width: 100%;
+    width: calc(100% - 2rem);
+    max-width: 36rem;
     border-radius: 2rem;
     margin: 0 auto;
     padding: var(--padding-fluid);
+    margin-top: 2rem;
+   grid-area:contenidocaja;
 }
 
 .contenidocaja h2 {
     text-align: center;
-    margin-bottom: 3rem;
     position: relative;
 }
 

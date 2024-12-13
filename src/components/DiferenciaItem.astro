@@ -1,26 +1,26 @@
 ---
 import { Picture } from 'astro:assets';
-import imagenSrc from '../assets/images/tesuena/tesuena-ficha.png';
-import flecha from '../assets/images/flecha.svg';
 
 interface Props {
     titulo: string;
     bajada: string;
     imagenAlt: string;
+    imagen: ImageMetadata;
+    flecha: ImageMetadata;
     invertido?: boolean;
 }
 
-const { titulo, bajada, imagenAlt, invertido = false } = Astro.props;
+const { titulo, bajada, imagenAlt, imagen, flecha, invertido = false } = Astro.props;
 ---
 
-<article class={`diferencia-item ${invertido ? 'invertido' : ''}`}>
+<article class={`diferencia-item ${invertido ? 'invertido' : ''}`} style={`--flecha-url: url('${flecha.src}')`}>
     <div class="contenido">
         <h3>{titulo}</h3>
         <p>{bajada}</p>
     </div>
     <div class="pieza">
         <Picture
-            src={imagenSrc}
+            src={imagen}
             alt={imagenAlt}
             widths={[320, 360]}
             sizes="(max-width: 360px) 320px, 360px"
@@ -38,8 +38,8 @@ const { titulo, bajada, imagenAlt, invertido = false } = Astro.props;
         gap: 8rem;
         align-items: center;
         margin: 0 auto;
-        max-width: 1200px;
-        padding: 0 1rem;
+        max-width: 60rem;
+        padding: 4rem 0;
         position: relative;
     }
 
@@ -63,27 +63,20 @@ const { titulo, bajada, imagenAlt, invertido = false } = Astro.props;
         grid-row: 1;
     }
 
-  
-
     .pieza__item {
         width: 100%;
         max-width: 160px;
         height: auto;
     }
 
-    
-
-  
-
     .diferencia-item::after {
-        content: url('../assets/images/flecha.png');
+        content: var(--flecha-url);
         display: block;
         position: absolute;
         bottom: 0;
         left: 50%;
-        width: 30px; /* Ajusta el ancho según sea necesario */
+        width: 30px;
         height: 30px;
-        
     }
 
     .diferencia-item:nth-of-type(odd)::after {

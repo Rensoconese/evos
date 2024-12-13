@@ -1,45 +1,64 @@
 ---
-import { SEO } from "astro-seo";
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 import "../styles/global.css";
+
+// Importa los componentes que necesites
+import Testimonio from '../components/Testimonio.astro';
+import OtrosJuegos from '../components/OtrosJuegos.astro';
+import HechoEnArgentina from '../components/HechoEnArgentina.astro';
+import Frase from '../components/Frase.astro';
+import DondeCompro from '../components/DondeCompro.astro';
+
+// Importa las imágenes
+import tesuenaFicha from '../assets/images/tesuena/tesuena-ficha.png';
+import tablerotesuena from '../assets/images/tesuena/tablerotesuena.png';
 ---
 
-<html>
-  <head><SEO
-    title="Evos, juegos inclusivos diseñados para estimular los sentidos"
-    description="A heavily optimized description full of well-researched keywords."
-    openGraph={{
-      basic: {
-        title: "A Very Descriptive Title",
-        type: "A type.",
-        image: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
-      }
-    }}
-    twitter={{
-      creator: "@shinyoctopus"
-    }}
-    extend={{
-      // extending the default link tags
-      link: [{ rel: "icon", href: "/favicon.ico" }],
-      // extending the default meta tags
-      meta: [
-        {
-          name: "twitter:image",
-          content: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
-        },
-        { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
-        { name: "twitter:description", content: "Agent" },
-      ],
-    }}
-  />
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://use.typekit.net/bfo3lly.css">
+<Layout 
+  title="Evos, juegos inclusivos diseñados para estimular los sentidos"
+  description="Juegos de mesa inclusivos diseñados para estimular los sentidos y promover el desarrollo sensorial"
+  image="/ruta-a-tu-imagen-og.jpg"
+>
+  <main>
+    <h1>Evos, juegos inclusivos diseñados para estimular los sentidos</h1>
+    
+    <div class="hero-image">
+      <Image 
+        src={tesuenaFicha} 
+        alt="Ficha de Te Suena"
+        width={400}
+        height={400}
+        quality="high"
+      />
+    </div>
+    
+    <!-- Resto de los componentes -->
+  </main>
+</Layout>
 
-  </head>
-  <body>
-    <main>
-        <h1>Evos, juegos inclusivos diseño para estimular los sentidos</h1>
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 100%;
+    max-width: var(--max-width, 1200px);
+  }
 
+  h1 {
+    color: var(--heading-color);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
 
-    </main>
-  </body>
-</html>
+  .hero-image {
+    margin: 2rem auto;
+    text-align: center;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>

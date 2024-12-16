@@ -1,0 +1,428 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SEO } from "astro-seo";
+import "../styles/global.css";
+import Comosejuega from '../components/Comosejuega.astro';
+import Frase from '../components/Frase.astro';
+import ContenidodelaCaja from '../components/ContenidodelaCaja.astro';
+import DondeCompro from '../components/DondeCompro.astro';
+import HechoEnArgentina from '../components/HechoEnArgentina.astro';
+import OtrosJuegos from '../components/OtrosJuegos.astro';
+import { Image } from 'astro:assets';
+import tatetiFichas from '../assets/images/tateti/tateti_fichas.png';
+import tatetiFichas02 from '../assets/images/tateti/tateti_fichas02.png';
+import tableroTateti from '../assets/images/tateti/tateti_tablero.png';
+import cajatateti from '../assets/images/caja-tateti.png';
+import cajatesuena from '../assets/images/caja-tesuena.png';
+import cajamemotoc from '../assets/images/caja-memotoc.png';
+import cajadomitoc from '../assets/images/caja-domitoc.png';
+
+
+const textos = {
+  modalidad: "Juego para dos jugadores.\nA partir de los 3 años de adad.",
+  preparacion: "Coloca el tablero de Tateti en una superficie estable. Asegúrate de que cada jugador tenga un set de fichas de un color, organizadas y listas para usar.",
+  dinamica: "Los jugadores se turnan para colocar sus fichas en las casillas vacías del tablero. El primer jugador en formar una línea continua de tres fichas en línea recta o en diagonal es el ganador.",
+}
+
+const frase = "Un juego que transforma el tacto en el protagonista. cada ficha ofrece una textura única para descubrir y emparejar.";
+
+const contenidoCaja = {
+    tituloFichas: "10 fichas",
+    tituloTablero: "1 tablero"
+}
+
+
+const mercadoLibreUrl = "https://articulo.mercadolibre.com.ar/MLA-1972298764-juego-de-mesa-tateti-tactil-inclusivo-_JM";
+
+const dondeCompro = {
+    titulo: "¿Dónde puedo conseguir Tateti?", 
+};
+
+const otrosJuegos = [
+    {
+        nombre: "Te suena",
+        imagen: cajatesuena.src, 
+        link: "/tesuena"
+    },
+    {
+        nombre: "Memotoc",
+        imagen: cajamemotoc.src, 
+        link: "/memotoc"
+    },
+    {
+        nombre: "Domitoc",
+        imagen: cajadomitoc.src, 
+        link: "/domitoc"
+    }
+];
+
+---
+
+<Layout 
+  title="Tateti - un clásico tactil | Evos"
+  description="Te suena es un juego de memoria sensorial auditivo diseñado para estimular los sentidos"
+  image="URL_DE_TU_IMAGEN"
+>
+  <main class="tesuena">
+    
+      <div class="hero">
+        <div class="hero__title">
+          <h1>Tateti <span> Juego clásico táctil</span></h1>
+        </div>
+        <div class="hero__img-container">
+          <div class="hero__img">
+            <Image 
+              src={tatetiFichas} 
+              alt="Te suena - Juego de memoria sensorial auditivo" 
+              class="hero__item"
+              width={453}
+              height={453}
+              quality="high"
+            />
+          </div> 
+          <div class="hero__pattern">
+            <svg width="100%" height="100%" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+              <!-- Primera fila -->
+              <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="300" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="500" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="700" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              
+              <!-- Segunda fila -->
+              <circle cx="100" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="300" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="500" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+              <circle cx="700" cy="300" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
+            </svg>
+          </div>
+      </div>
+      <Comosejuega 
+      modalidad={textos.modalidad}
+      preparacion={textos.preparacion}
+      dinamica={textos.dinamica}
+    />
+    <div class="tablero">
+      <div class="tablero-1"> </div>
+      <div class="tablero-2"> </div>
+      <div class="tablero-3"> 
+        <Image
+        src={tableroTateti}
+        alt="Tablero de Te Suena con 8 pares de fichas"
+        width={1300}
+        height={800}
+        quality="high"
+        class="tablero__item"
+      />
+      </div>
+      
+    </div>
+    
+    </div>
+   
+    
+  
+    <Frase texto={frase} />
+
+    <div class="fichas__img">
+      <Image
+        src={tatetiFichas02}
+        alt="Tablero de Te Suena con 8 pares de fichas"
+        width={596}
+        height={400}
+        quality="high"
+        class="tablero__item"
+      />
+    </div>
+
+
+    
+    <ContenidodelaCaja 
+      tituloFichas={contenidoCaja.tituloFichas}
+      tituloTablero={contenidoCaja.tituloTablero}
+    />
+ 
+
+   <div class="caja">
+    <div class="caja-1"></div>
+    <div class="caja-2"></div>
+    <div class="caja-3">
+
+        <Image
+          src={cajatateti}
+          alt="Tablero de Te Suena con 8 pares de fichas"
+          width={720}
+          height={500}
+          quality="high"
+          class="caja__item"
+        />
+     
+    </div>
+   </div> 
+
+    
+    <DondeCompro 
+      titulo={dondeCompro.titulo}
+      mercadoLibreLink={mercadoLibreUrl}
+    />
+    
+<div class="argentina_container">
+    <div class="argentina_1"></div>
+    <div class="argentina_2"></div>
+    <HechoEnArgentina />
+</div>
+
+    <OtrosJuegos 
+    juegos={otrosJuegos} />
+  
+  </main>
+</Layout>
+
+<style>
+
+
+  /* Estilos generales */
+  .tesuena :global(h1){
+    color: var(--orange);
+  }
+  .tesuena :global(h2),
+  .tesuena :global(h3),
+  .tesuena :global(h4) {
+    color: var(--blue);
+  }
+
+  h1 span {color: var(--text-color)}
+
+  /* Comosejuega */
+  :global(.comosejuega__grid dt)  {
+    color: var(--blue);
+  }
+  :global(.comosejuega__grid dl)  {
+    border-color: var(--blue);
+  }
+
+  /* Estilos para Hero */
+  .hero{
+    width: calc(100% - 2rem);
+    background-color: var(--cremita);
+    border-radius: clamp(1rem, 3vw, 2rem);
+    margin:0 auto;
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem);
+   
+  }
+  .hero__title {
+    text-align: center;
+    padding: var(--padding-fluid);
+  
+  }
+
+  .hero__img-container {
+    position: relative;
+    display: grid;
+    place-items: center;
+   
+  }
+
+  .hero__img {
+    max-width: clamp(120px, 20vw, 453px);
+    margin: 0 auto;
+    z-index: 2;
+    position: sticky;
+    top: 20%;
+   
+  }
+
+  .hero__pattern {
+    width: 100%;
+    aspect-ratio: 2/1;
+    margin-top: clamp(-4rem, -10vw, -8rem);
+    background-position: center 0;
+    background-size: 100% auto;
+  }
+
+  .hero__pattern svg {
+    width: 100%;
+    height: 100%;
+    color: var(--blue);
+    z-index: 1;
+  }
+
+  .tesuena {
+    background-color: var(--orange);
+  }  
+
+  /* Estilos para TABLERO */
+  .tablero {
+    width: 100%;
+    background-color: var(--orange);
+    margin: 0 auto;
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-template-areas:
+    "corte1"
+    "corte2"
+    "img"
+    ;
+   
+  }
+
+  .tablero-1 {
+    grid-area: corte1;
+    background-color: var(--cremita);
+    border-radius: 0 0 4rem 4rem;
+    height: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tablero-2 {
+    grid-area: corte2;
+    background-color: var(--orange);
+    height: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tablero-3 {
+    grid-area: img;
+    grid-row: corte1 / corte2;
+    position: relative;
+    z-index: 2;
+    margin-top: -2rem; /* Slight negative margin to reduce pixel gap */
+  }
+
+  .tablero__item {
+   
+    height: auto;
+  }
+/* Estilos para FICHAS */
+  .fichas__img {
+    padding: var(--padding-fluid);
+    margin: 0 auto;
+    grid-row:fichas;
+  }
+
+/* Estilos para CAJA */
+.caja {
+  width: 100%;
+  background-color: var(--orange);
+  margin: 0 auto;
+  display: grid;
+  grid-auto-columns: 100%;
+  grid-template-areas:
+  "corte1"
+  "corte2"
+  "img"
+  ;
+  margin-bottom: -4rem;
+  transform: translateY(12rem);
+}
+
+
+.caja-1 {
+  grid-area: corte1;
+  background-color: var(--orange);
+ 
+ height: auto;
+
+}
+.caja-2 {
+  grid-area: corte2;
+  background-color: var(--blue);
+  border-radius:4rem 4rem  0 0 ;
+  height: auto;
+
+}
+
+.caja-3 {
+  grid-area: img;
+  grid-row: corte1 / corte2;
+  max-width: 30rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--padding-fluid);
+}
+
+.tesuena :global(.contenidocaja) {
+    background-color: var(--blue);
+  }
+
+  .tesuena :global(.contenidocaja h2),
+  .tesuena :global(.contenidocaja dt),
+  .tesuena :global(.contenidocaja dd),
+  .tesuena :global(.frase)
+  {
+    color: var(--background-color);
+  }
+
+  :global(.juego-item){
+    background-color: #744584;
+  }
+
+
+
+
+/* Estilos para DONDECOMPRO */
+  
+  .tesuena :global(.donde-compro h2),
+  .tesuena :global(.donde-compro p) {
+    color: var(--background-color);
+  }
+
+:global(.dondecompro_container){ 
+   background-color: var(--blue);
+   transform: translateY(4rem);
+   padding-bottom: 4rem;
+} 
+
+  /* Estilos para HechoEnArgentina */
+
+.argentina_container{
+  width: 100%;
+  background-color: var(--blue);
+  margin: 0 auto;
+  display:grid;
+  grid-area:argentina;
+  grid-auto-columns: 100%;
+  grid-template-areas:
+  "argentina1"
+  "argentina2"
+  "argentina3"
+  ;
+  margin-bottom: -4rem;
+ 
+}
+
+  .argentina_1 {
+  grid-area: argentina1;
+  background-color: var(--blue);
+ 
+ height: auto;
+
+}
+.argentina_2 {
+  grid-area: argentina2;
+  background-color: var(--blue-dark) ;
+  border-radius:4rem 4rem 0 0 ;
+ height: auto;
+
+}
+
+
+
+
+::global(.otros-juegos) {
+        padding: var(--padding-fluid);
+        text-align: center;
+        display: grid;
+        gap: 2rem;
+        width: 100%;
+        background-color: var(--blue-dark);
+        margin: 0 auto;
+        position: relative;
+        grid-area:otrosjuegos;
+    }
+::global(.juego-item) { 
+       background-color: var(--blue-darker);
+}
+</style>

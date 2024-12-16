@@ -1,9 +1,9 @@
 ---
 interface Props {
     tituloFichas: string;
-    textoFichas: string;
+    textoFichas?: string;
     tituloTablero: string;
-    textoTablero: string;
+    textoTablero?: string;
     tituloManuales?: string;
     textoManuales?: string;
 }
@@ -22,11 +22,11 @@ const {
     <div class="contenidocaja__grid">
         <dl>
             <dt>{tituloFichas}</dt>
-            <dd>{textoFichas}</dd>
+            {textoFichas && <dd>{textoFichas}</dd>}
         </dl>
         <dl>
             <dt>{tituloTablero}</dt>
-            <dd>{textoTablero}</dd>
+            {textoTablero && <dd>{textoTablero}</dd>}
         </dl>
         {tituloManuales && textoManuales && (
             <dl>
@@ -65,7 +65,7 @@ const {
 
 dl {
     margin: 0;
-    padding-bottom: 2rem;
+  
     position: relative;
 }
 
@@ -83,13 +83,14 @@ dt {
     font-family: var(--titles);
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1rem;
     text-transform: uppercase;
+   
 }
 
 dd {
     margin: 0;
     line-height: 1.5;
+    padding-bottom: 1rem;
 }
 
 </style>

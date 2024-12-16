@@ -17,6 +17,8 @@
   --green-dark: #3B8D43;
   --green-darker: #307337;
   --blue: #5A8CD2;
+  --blue-dark: #3B6DA2;
+  --blue-darker: #2D4D72;
   --background-color: #ffffff;
   --cremita: #FFF8F5;
   --text-color: #000;
@@ -126,3 +128,4 @@ main {
     "argentina"
     "otrosjuegos";
 }
+

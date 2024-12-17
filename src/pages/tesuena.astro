@@ -266,55 +266,55 @@ const otrosJuegos = [
   </main>
 </Layout>
 
-<style>
-main {
-  display: grid;
-  grid-template-columns: 100%;
-  row-gap: 4rem;
-  grid-auto-columns: 1fr;
-  grid-template-areas: 
-    "hero"
-    "frase"
-    "fichas"
-    "contenidocaja"
-    "caja"
-    "diferencias"
-    "testimonios"
-    "dondecompro"
-    "argentina"
-    "otrosjuegos";
-}
-/* Highlight color */
-:global(::selection) {
-  background-color: var(--aqua-dark);
-  color: white;
-}
+<style is:global>
+  main {
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 4rem;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+      "hero"
+      "frase"
+      "fichas"
+      "contenidocaja"
+      "caja"
+      "diferencias"
+      "testimonios"
+      "dondecompro"
+      "argentina"
+      "otrosjuegos";
+  }
+  /* Highlight color */
+  ::selection {
+    background-color: var(--aqua-dark);
+    color: white;
+  }
 
-:global(::-moz-selection) {
-  background-color: var(--aqua-dark);
-  color: white;
-}
+  ::-moz-selection {
+    background-color: var(--aqua-dark);
+    color: white;
+  }
 
   /* Estilos generales */
-  .tesuena :global(h1),
-  .tesuena :global(h2),
-  .tesuena :global(h3),
-  .tesuena :global(h4) {
+  .tesuena h1,
+  .tesuena h2,
+  .tesuena h3,
+  .tesuena h4 {
     color: var(--aqua);
   }
 
   h1 span {color: var(--text-color)}
 
   /* Comosejuega */
-  :global(.comosejuega__grid dt)  {
+  .comosejuega__grid dt  {
     color: var(--aqua);
   }
 
-  .comosejuega .tesuena :global(dt) {
+  .comosejuega .tesuena dt {
     color: var(--aqua);
   }
 
-  :global(.comosejuega__grid dl)  {
+  .comosejuega__grid dl  {
     border-color: var(--aqua);
   }
 
@@ -368,6 +368,25 @@ main {
   .tesuena {
     background-color: var(--aqua);
   }  
+  .frase {
+    font-size: clamp(1rem, 5vw + 1rem, 6.25rem);
+    line-height: 1; /* 100% */
+    letter-spacing: -0.04em; /* -4% */
+    font-family: var(--titles);
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: var(--padding-fluid);
+    max-width: 90rem;
+    margin: 0 auto;
+    grid-area: frase;
+  }
+
+  .tesuena .contenidocaja h2,
+  .tesuena .contenidocaja dt,
+  .tesuena .contenidocaja dd,
+  .tesuena .frase {
+    color: var(--background-color);
+  }
 
   /* Estilos para TABLERO */
   .tablero {
@@ -421,6 +440,62 @@ main {
     grid-row:fichas;
   }
 
+
+/* Estilos para CONTENIDODELA CAJA */
+
+
+.contenidocaja {
+    width: calc(100% - 2rem);
+    max-width: 36rem;
+    border-radius: 2rem;
+    margin: 0 auto;
+    padding: var(--padding-fluid);
+    margin-top: 2rem;
+   grid-area:contenidocaja;
+}
+
+.contenidocaja h2 {
+    text-align: center;
+    position: relative;
+}
+
+.contenidocaja__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+dl {
+    margin: 0;
+  
+    position: relative;
+}
+
+dl:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+}
+
+dt {
+    font-family: var(--titles);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+   
+}
+
+dd {
+    margin: 0;
+    line-height: 1.5;
+    padding-bottom: 1rem;
+}
+
 /* Estilos para CAJA */
 .caja {
   width: 100%;
@@ -461,19 +536,18 @@ main {
     padding: var(--padding-fluid);
 }
 
-.tesuena :global(.contenidocaja) {
+  .tesuena .contenidocaja {
     background-color: #376B5C;
   }
 
-  .tesuena :global(.contenidocaja h2),
-  .tesuena :global(.contenidocaja dt),
-  .tesuena :global(.contenidocaja dd),
-  .tesuena :global(.frase)
-  {
+  .tesuena .contenidocaja h2,
+  .tesuena .contenidocaja dt,
+  .tesuena .contenidocaja dd,
+  .tesuena .frase {
     color: var(--background-color);
   }
 
-  :global(.juego-item){
+  .juego-item{
     background-color: #376B5C;
   }
 
@@ -508,7 +582,7 @@ main {
 
 }
 
-::global(.testimonio) {
+.testimonio {
   grid-area: testimonio3;
   grid-row: testimonio1 / testimonio2;
   max-width: 30rem;
@@ -521,14 +595,14 @@ main {
 
 
 
-  .tesuena :global(.testimonio) {
+  .tesuena .testimonio {
     background-color: #376B5C;
   }
 
 /* Estilos para DONDECOMPRO */
   
-  .tesuena :global(.donde-compro h2),
-  .tesuena :global(.donde-compro p) {
+  .tesuena .donde-compro h2,
+  .tesuena .donde-compro p {
     color: var(--background-color);
   }
 
@@ -568,7 +642,7 @@ main {
 
   /* Estilos para ContenidodelaCaja */
  
-  ::global(.otros-juegos) {
+  .otros-juegos {
         padding: var(--padding-fluid);
         text-align: center;
         display: grid;
@@ -580,4 +654,9 @@ main {
         grid-area:otrosjuegos;
     }
 
+  .tesuena {
+    background-color: var(--aqua);
+  }  
+
+  
 </style>

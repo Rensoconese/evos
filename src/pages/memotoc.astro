@@ -271,56 +271,55 @@ const otrosJuegos = [
   </main>
 </Layout>
 
-<style>
+<style is:global>
+  /* Highlight color */
+  ::selection {
+    background-color: var(--orange-dark);
+    color: white;
+  }
 
-/* Highlight color */
-:global(::selection) {
-  background-color: var(--orange-dark);
-  color: white;
-}
+  ::-moz-selection {
+    background-color: var(--orange-dark);
+    color: white;
+  }
 
-:global(::-moz-selection) {
-  background-color: var(--orange-dark);
-  color: white;
-}
-
-main {
-  display: grid;
-  grid-template-columns: 100%;
-  row-gap: 4rem;
-  grid-auto-columns: 1fr;
-  grid-template-areas: 
-    "hero"
-    "frase"
-    "fichas"
-    "contenidocaja"
-    "caja"
-    "diferencias"
-    "testimonios"
-    "dondecompro"
-    "argentina"
-    "otrosjuegos";
-}
+  main {
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 4rem;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+      "hero"
+      "frase"
+      "fichas"
+      "contenidocaja"
+      "caja"
+      "diferencias"
+      "testimonios"
+      "dondecompro"
+      "argentina"
+      "otrosjuegos";
+  }
 
 
 
   /* Estilos generales */
-  .tesuena :global(h1){
+  .tesuena h1{
     color: var(--orange);
   }
-  .tesuena :global(h2),
-  .tesuena :global(h3),
-  .tesuena :global(h4) {
+  .tesuena h2,
+  .tesuena h3,
+  .tesuena h4 {
     color: var(--violet);
   }
 
   h1 span {color: var(--text-color)}
 
   /* Comosejuega */
-  :global(.comosejuega__grid dt)  {
+  .comosejuega__grid dt  {
     color: var(--orange);
   }
-  :global(.comosejuega__grid dl)  {
+  .comosejuega__grid dl  {
     border-color: var(--orange);
   }
 
@@ -374,6 +373,25 @@ main {
   .tesuena {
     background-color: var(--violet);
   }  
+  .frase {
+    font-size: clamp(1rem, 5vw + 1rem, 6.25rem);
+    line-height: 1; /* 100% */
+    letter-spacing: -0.04em; /* -4% */
+    font-family: var(--titles);
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: var(--padding-fluid);
+    max-width: 90rem;
+    margin: 0 auto;
+    grid-area: frase;
+  }
+
+  .tesuena .contenidocaja h2,
+  .tesuena .contenidocaja dt,
+  .tesuena .contenidocaja dd,
+  .tesuena .frase {
+    color: var(--background-color);
+  }
 
   /* Estilos para TABLERO */
   .tablero {
@@ -425,6 +443,60 @@ main {
     margin: 0 auto;
     grid-row:fichas;
   }
+/* Estilos para CONTENIDODELA CAJA */
+
+
+.contenidocaja {
+    width: calc(100% - 2rem);
+    max-width: 36rem;
+    border-radius: 2rem;
+    margin: 0 auto;
+    padding: var(--padding-fluid);
+    margin-top: 2rem;
+   grid-area:contenidocaja;
+}
+
+.contenidocaja h2 {
+    text-align: center;
+    position: relative;
+}
+
+.contenidocaja__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+dl {
+    margin: 0;
+  
+    position: relative;
+}
+
+dl:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+}
+
+dt {
+    font-family: var(--titles);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+   
+}
+
+dd {
+    margin: 0;
+    line-height: 1.5;
+    padding-bottom: 1rem;
+}
 
 /* Estilos para CAJA */
 .caja {
@@ -466,19 +538,18 @@ main {
     padding: var(--padding-fluid);
 }
 
-.tesuena :global(.contenidocaja) {
+  .contenidocaja {
     background-color: var(--orange);
   }
 
-  .tesuena :global(.contenidocaja h2),
-  .tesuena :global(.contenidocaja dt),
-  .tesuena :global(.contenidocaja dd),
-  .tesuena :global(.frase)
-  {
+  .contenidocaja h2,
+  .contenidocaja dt,
+  .contenidocaja dd,
+  .frase {
     color: var(--background-color);
   }
 
-  :global(.juego-item){
+  .juego-item{
     background-color: #744584;
   }
 
@@ -513,7 +584,7 @@ main {
 
 }
 
-::global(.testimonio) {
+.testimonio {
   grid-area: testimonio3;
   grid-row: testimonio1 / testimonio2;
   max-width: 30rem;
@@ -525,13 +596,13 @@ main {
 
 
 
-  .tesuena :global(.testimonio) {
+  .testimonio {
     background-color:var(--orange);
   }
 
 /* Estilos para DIFERENCIAS */
   
-::global(img.pieza__item) {
+img.pieza__item {
     transform: rotate(15deg);
 }
   
@@ -539,8 +610,8 @@ main {
 
 /* Estilos para DONDECOMPRO */
   
-  .tesuena :global(.donde-compro h2),
-  .tesuena :global(.donde-compro p) {
+  .donde-compro h2,
+  .donde-compro p {
     color: var(--background-color);
   }
 
@@ -580,7 +651,7 @@ main {
 
 
 
-::global(.otros-juegos) {
+.otros-juegos {
         padding: var(--padding-fluid);
         text-align: center;
         display: grid;
@@ -591,7 +662,7 @@ main {
         position: relative;
         grid-area:otrosjuegos;
     }
-::global(.juego-item) { 
+.juego-item { 
        background-color: var(--violet-darker);
 }
 </style>

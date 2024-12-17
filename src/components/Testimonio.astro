@@ -38,12 +38,11 @@ const { cita, imagen, nombre, cargo, cargoLink } = Astro.props;
 
 
     .testimonio {
-       width: calc(100% - 2rem);
+       
         color: white;
         display: grid;
-        
         gap: 2rem;
-        max-width: 36rem;
+        
         border-radius: 2rem;
          margin: 0 auto;
          padding: var(--padding-fluid);
@@ -94,10 +93,15 @@ const { cita, imagen, nombre, cargo, cargoLink } = Astro.props;
         font-weight: 200;
         margin: 0;
         color: white;
+        
+    }
+
+    .indo a {
+        
         text-decoration: none;
     }
 
-    .cargo:hover {
+    .info a:hover {
         text-decoration: underline;
     }
 </style>

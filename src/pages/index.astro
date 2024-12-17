@@ -1,123 +1,641 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import "../styles/global.css";
+import { Image } from 'astro:assets';
+import fichahero01 from '../assets/images/evos-hero-01.png';
+import fichahero02 from '../assets/images/evos-hero-02.png';
+import fichahero03 from '../assets/images/evos-hero-03.png';
+import fichahero04 from '../assets/images/evos-hero-04.png';
+import fichahero05 from '../assets/images/evos-hero-05.png';
+import tablerotesuena from '../assets/images/tesuena/tablerotesuena.png';
+import tableromemotoc from '../assets/images/memotoc/memotoc_tablero.png';
+import tablerodomitoc from '../assets/images/domitoc/domitoc_fichas.png';
+import tablerotateti from '../assets/images/tateti/tateti_tablero.png';
+import JuegosCard from '../components/juegosCard.astro';
+import Testimonio from '../components/Testimonio.astro';
+import roberto from '../assets/images/roberto_colimodio.png';
+import juguetesuniversales from '../assets/images/juguetes_universales.png';
+import avatar from '../assets/images/evos_avatar.png';
+import sello from '../assets/images/memotoc/sello_buen_diseno.png';
+import selloimg1 from '../assets/images/memotoc-juego-01.jpg';		
+import selloimg2 from '../assets/images/memotoc-juego-02.jpg';
+import selloimg3 from '../assets/images/memotoc-juego-03.jpg';
+import Notas from '../components/notas.astro';
+
+const testimonios = [
+    {
+        cita: "Te suena  y Memotoc son juegos novedosos ideales para romper la rutina en reuniones con amigos.", 
+        imagen: roberto,
+        nombre: "Roberto Colimodio",
+        cargo: "Historiador argentino",
+        cargoLink: "https://www.instagram.com/robertocolimodio"
+    },
+	{
+        cita: "“Elegimos Evos porque sus juegos cumplen con nuestra misión de ofrecer productos accesibles para todos los niños. Cada propuesta, con instrucciones en tinta y en braille, nos invitan a vivir experiencias de juego que apoyan el desarrollo sensorial y el aprendizaje en un ambiente inclusivo", 
+        imagen: juguetesuniversales,
+        nombre: "Juguetes Universales",
+        cargo: "jugueteria especializada en material terapeutico",
+        cargoLink: "https://www.juguetesuniversales.com/"
+    },
+	{
+        cita: "“Como persona con discapacidad visual agradezco profundamente la iniciativa de Evos que nos ofrece la posibilidad y sobre todo las condiciones de accesibilidad necesarias para disfrutar del mundo de los juegos de mesa, y con ellos sumergir a mis hijos en el fascinante aprendizaje de lo que se incorpora con lo lúdico. Más profundamente  agradezco la posibilidad de traer a la mesa el respeto a la diversidad y el fomento de una conciencia de verdadera inclusión.", 
+        imagen: avatar,
+        nombre: "Carolina Menoyo",
+        cargo: "Cliente",
+    
+    }
+];
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<svg
-			class="astro-a"
-			width="495"
-			height="623"
-			viewBox="0 0 495 623"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-		>
-			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
-				d="M167.19 364.254C83.4786 364.254 0 404.819 0 404.819C0 404.819 141.781 19.4876 142.087 18.7291C146.434 7.33701 153.027 0 162.289 0H332.441C341.703 0 348.574 7.33701 352.643 18.7291C352.92 19.5022 494.716 404.819 494.716 404.819C494.716 404.819 426.67 364.254 327.525 364.254L264.41 169.408C262.047 159.985 255.147 153.581 247.358 153.581C239.569 153.581 232.669 159.985 230.306 169.408L167.19 364.254ZM160.869 530.172C160.877 530.18 160.885 530.187 160.894 530.195L160.867 530.181C160.868 530.178 160.868 530.175 160.869 530.172ZM136.218 411.348C124.476 450.467 132.698 504.458 160.869 530.172C160.997 529.696 161.125 529.242 161.248 528.804C161.502 527.907 161.737 527.073 161.917 526.233C165.446 509.895 178.754 499.52 195.577 500.01C211.969 500.487 220.67 508.765 223.202 527.254C224.141 534.12 224.23 541.131 224.319 548.105C224.328 548.834 224.337 549.563 224.347 550.291C224.563 566.098 228.657 580.707 237.264 593.914C245.413 606.426 256.108 615.943 270.749 622.478C270.593 621.952 270.463 621.508 270.35 621.126C270.045 620.086 269.872 619.499 269.685 618.911C258.909 585.935 266.668 563.266 295.344 543.933C298.254 541.971 301.187 540.041 304.12 538.112C310.591 533.854 317.059 529.599 323.279 525.007C345.88 508.329 360.09 486.327 363.431 457.844C364.805 446.148 363.781 434.657 359.848 423.275C358.176 424.287 356.587 425.295 355.042 426.275C351.744 428.366 348.647 430.33 345.382 431.934C303.466 452.507 259.152 455.053 214.03 448.245C184.802 443.834 156.584 436.019 136.218 411.348Z"
-				fill="url(#paint0_linear_1805_24383)"></path>
-			<defs>
-				<linearGradient
-					id="paint0_linear_1805_24383"
-					x1="247.358"
-					y1="0"
-					x2="247.358"
-					y2="622.479"
-					gradientUnits="userSpaceOnUse"
-				>
-					<stop stop-opacity="0.9"></stop>
-					<stop offset="1" stop-opacity="0.2"></stop>
-				</linearGradient>
-			</defs>
-		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+<Layout title="Evos - Juegos de mesa para estimular los sentidos">
+	<main class="tesuena">
+		<div class="hero">
+			<div class="hero__title">
+			  <h1>Evos <span>Juegos inclusivospara estimular los sentidos</span></h1>
+			  <a href="#nuestros_juegos">Descubre nuestros juegos</a>
+			  <div class="fichas-hero">
+				<Image 
+				  src={fichahero01} 
+				  alt="Fichas Te suena"
+				  width={144}
+				  height={144}
+				  quality="high"
+				 class="ficha-01"
+				/>
+				<Image 
+				  src={fichahero02} 
+				  alt="Fichas Te suena"
+				  width={144}
+				  height={144}
+				  quality="high"
+				 class="ficha-02"
+				/>
+				<Image 
+				  src={fichahero03} 
+				  alt="Fichas Te suena"
+				  width={144}
+				  height={144}
+				  quality="high"
+				 class="ficha-03"
+				/>
+				<Image 
+				  src={fichahero04} 
+				  alt="Fichas Te suena"
+				  width={144}
+				  height={144}
+				  quality="high"
+				 class="ficha-04"
+				/>
+				<Image 
+				  src={fichahero05} 
+				  alt="Fichas Te suena"
+				  width={144}
+				  height={144}
+				  quality="high"
+				 class="ficha-05"
+				/>
+				</div>
+			</div>
+		  </div>
+		</div>
+
+		  <section class="nuestros_juegos" id="nuestros_juegos">
+			<header>
+				<h2>juegos sensoriales inclusivos</h2>
+				<p>Experiencias lúdicas para la estimulación sensorial y el desarrollo integral.</p>
+			</header>
+			<div class="juegos">
+				<JuegosCard 
+				imageSrc= {tablerotesuena}
+				title="Te suena"
+				subtitle="Juego de memoria sensorial auditivo"
+				href="/tesuena"
+			  />
+			  <JuegosCard 
+				imageSrc= {tableromemotoc}
+				title="Memotoc"
+				subtitle="Juego de memoria sensorial táctil"
+				href="/memotoc"
+			  />
+			  <JuegosCard 
+				imageSrc= {tablerodomitoc}
+				title="Domitoc"
+				subtitle="Dominó táctil"
+				href="/domitoc"
+			  />
+			  <JuegosCard 
+				imageSrc= {tablerotateti}
+				title="Tateti"
+				subtitle="Un clásico para jugar en cualquier momento."
+				href="/tateti"
+			  />	
+			</div>
+			<div class="beneficios">
+				<p>Los juegos Evos ayudan al desarrollo de la memoria, la orientación espacial y el reconocimiento visual. </p>
+			  </div>	
+		  </section>
+		  <section class="clientes">
+			<h2>Juegos avalados por clientes y profesionales de la salud</h2>
+			<div class="testimonios__grid">
+				{testimonios.map((testimonio) => (
+					<Testimonio {...testimonio} />
+				  ))}
+
+			</div>
+		  </section>
+		  <section class="buendiseno">
+			<header>
+				<h2>Juegos con buen diseño</h2>
+				<p>El juego Memotoc <a href="https://sbd.produccion.gob.ar/productos/memotoc/" target="_blank">(registro 4079)</a> fue galardonado con el Sello Buen Diseño en la 11ª edición del certamen organizado por el Ministerio de Producción de la Nación. </p>
+				<div class="sello__imagenes">
+					<Image 
+					  src={selloimg1} 
+					  alt="Sello Buen Diseño" 
+					  class="hero__item"
+					  width={144}
+					  height={144}
+					  quality="high"
+					 
+					/>
+					<Image 
+					  src={selloimg2} 
+					  alt="Sello Buen Diseño" 
+					  class="hero__item"
+					  width={144}
+					  height={144}
+					  quality="high"
+					 
+					/>
+					<Image 
+					  src={selloimg3} 
+					  alt="Sello Buen Diseño" 
+					  class="hero__item"
+					  width={144}
+					  height={144}
+					  quality="high"
+					/>
+				</div>
+			</header>
+			<div class="sello">
+				
+			<Image 
+				  src={sello} 
+				  alt="Sello Buen Diseño" 
+				  class="hero__item"
+				  width={300}
+				  height={300}
+				  quality="high"
+				  class="sello__img"
+				/>
+				<div class="circle">
+				</div>
+			</div>
+			
+			
+		  </section>
+		  <section class="inclusion">
+			<header>
+				<h2>En Evos tenemos un compromiso con la inclusión</h2>
+				<p>Todas las personas deberíamos de poder jugar, por en eso en Evos buscamos crear juegos que no dejen a nadie a fuera. Porque si jugamos todos, es más divertido.</p>
+			</header>
+			
+			<div class="notas">
+				<Notas 
+					title="Nota en blog español de accesibilidad."
+					linkText="Ir a la nota"
+					href="https://versinlimitesaccesibilidad.com/memotoc-un-juego-inclusivo-para-crecer-en-igualdad/?doing_wp_cron=1734390924.8219289779663085937500"
+				/>
+				<Notas 
+					title="Nota en blog español de accesibilidad."
+					linkText="Ir a la nota"
+					href="https://versinlimitesaccesibilidad.com/evos-juegos-y-juguetes-inclusivos-desde-el-diseno-universal/?doing_wp_cron=1734391008.0413970947265625000000"
+				/>
+				<Notas 
+					title="Nota en canal de Youtube español de accesibildad."
+					linkText="Ir a la nota"
+					href="https://www.youtube.com/watch?v=Ug_ZB1BF8Og"
+				/>
+				<Notas 
+					title="Entrevista en programa de radio"
+					linkText="Ir a la nota"
+					href="https://www.facebook.com/ATECongreso1925/posts/pfbid025txUiKVGyds5ackFMbzLQcqPnmxaqfsahH4ZAnEgBeRqTDVvcr6KUoyQWXrmiw75l"
+				/>
+			</div>
+		  </section>	
+		  <div class="argentina_container">
+		  
+		  </div>
+		  
 	</main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+
+	/* Highlight color */
+:global(::selection) {
+  background-color: var(--violet-dark);
+  color: white;
+}
+
+:global(::-moz-selection) {
+  background-color: var(--violet-dark);
+  color: white;
+}
+	
+main {
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 16em;
+  grid-auto-columns: 1fr;
+ 
+}
+
+
+	  .tesuena {
+    background-color: var(--cremita);
+  }  
+
+	 /* Estilos generales */
+	 
+	 .tesuena :global(h1){
+		color: var(--orange);
+	 }
+	 
+  .tesuena :global(h2),
+  .tesuena :global(h3),
+  .tesuena :global(h4) {
+    color: var(--violet);
+  }
+
+  h1 span {color: var(--text-color)}
+
+/* Estilos para Hero */
+.hero{
+    width: calc(100% - 2rem);
+    background-color: var(--cremita);
+    border-radius: clamp(1rem, 3vw, 2rem);
+    margin:0 auto;
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem);
+	height: 100dvh;
+	align-items: center;
+	position: relative;
+	
+   
+  }
+  .hero__title {
+    text-align: center;
+    padding: var(--padding-fluid);
+	display: grid;
+	gap: 2rem;
+	height: min-content;
+	
+  
+  }
+
+.hero__title h1 {
+	z-index: 9999;
+  }
+
+  .hero__title a {
+    background-color: var(--violet) ;
+    font-family: var(--titles);
+	color:var(--background-color);
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+	margin: 0 auto;
+	max-width: max-content;
+	height: min-content;
+	z-index: 9999;
+
+  }
+
+  .fichas-hero{
+	position:absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-areas: 
+	"ficha-01 ficha-01 ficha-02 ficha-02"
+	"ficha-03 ficha-04 ficha-04 ficha-05";
+	grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+	gap: 2rem;
+	
+  }
+
+  .ficha-01{
+	grid-area: ficha-01;
+	align-self: center;
+  }
+  .ficha-02{
+	grid-area: ficha-02;
+	align-self: center;
+  }
+  .ficha-03{
+	grid-area: ficha-03;
+	align-self: center;
+  }
+  .ficha-04{		
+	grid-area: ficha-04;
+	align-self: end;
+  }
+  .ficha-05{		
+	grid-area: ficha-05;
+	align-self: center;
+  }
+
+.nuestros_juegos{
+	display: grid;
+	gap: 2rem;
+	padding: var(--padding-fluid);
+	
+}
+
+.nuestros_juegos header{
+	max-width: 40rem;
+	margin: 0 auto;
+}
+.nuestros_juegos h2, .nuestros_juegos p{
+	text-align: center;
+}
+.juegos {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  .beneficios{
+	padding: var(--padding-fluid);
+	max-width: 30rem;
+	margin: 0 auto;	
+	text-align: center;
+  }
+
+/* Estilos específicos para cada juego card */
+  :global(.juegos .juegoscard:nth-child(1)) {
+    border-color: var(--aqua);
+  }
+
+  :global(.juegos .juegoscard:nth-child(1) h3) {
+    color: var(--aqua);
+  }
+
+  :global(.juegos .juegoscard:nth-child(1) a) {
+
+    background-color: var(--aqua);
+    color: white;
+  }
+
+  :global(.juegos .juegoscard:nth-child(1) a:hover) {
+    background-color: var(--aqua-dark);
+  }
+
+  :global(.juegos .juegoscard:nth-child(2)) {
+    border-color: var(--orange);
+  }
+
+  :global(.juegos .juegoscard:nth-child(2) h3) {
+    color: var(--orange);
+  }
+
+  :global(.juegos .juegoscard:nth-child(2) a) {
+    background-color: var(--orange);
+    color: white;
+  }
+
+  :global(.juegos .juegoscard:nth-child(2) a:hover) {
+    background-color: var(--orange-dark);
+  }
+
+  :global(.juegos .juegoscard:nth-child(3)) {
+    border-color: var(--green);
+  }
+
+  :global(.juegos .juegoscard:nth-child(3) h3) {
+    color: var(--green);
+  }
+
+  :global(.juegos .juegoscard:nth-child(3) a) {
+    background-color: var(--green);
+    color: white;
+  }
+
+  :global(.juegos .juegoscard:nth-child(3) a:hover) {
+    background-color: var(--green-dark);
+  }
+
+  :global(.juegos .juegoscard:nth-child(4)) {
+    border-color: var(--blue);
+  }
+
+  :global(.juegos .juegoscard:nth-child(4) h3) {
+    color: var(--blue);
+  }
+
+  :global(.juegos .juegoscard:nth-child(4) a) {
+    background-color: var(--blue);
+    color: white;
+  }
+
+  :global(.juegos .juegoscard:nth-child(4) a:hover) {
+    background-color: var(--blue-dark);
+  }
+.clientes{
+	display: grid;
+	grid-template-areas: "title testimonios";
+	gap: 2rem;
+	padding: var(--padding-fluid);	
+	grid-template-columns: 1fr 1fr;
+	max-width: 90rem;
+	margin: 0 auto;
+	
+}
+
+.clientes h2{
+	grid-area: title;
+}
+
+  :global(.testimonio) {
+	background-color: var(--background-color);
+	border: 1px solid var(--orange);
+	width: 100%;
+	
+  }
+
+
+  
+  :global(.testimonios__grid) {
+	display: grid;
+	gap:2rem;
+	
+	
+  }
+
+  :global(.testimonios__grid blockquote) {
+	color: var(--text-color);
+	
+  }
+  :global(.testimonio .info p), :global(.testimonio .info a) {
+	color: var(--text-color);
+  }
+
+  .buendiseno{
+	display: grid;
+	grid-template-areas: "img title";
+	gap: 2rem;
+	padding: var(--padding-fluid);	
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	max-width: 90rem;
+	margin: 0 auto;
+	
+}
+.buendiseno header{
+	grid-area: title;
+}
+
+.buendiseno header a{
+	text-decoration: underline;
+}
+
+.sello__imagenes{
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+.sello__imagenes img{
+	
+	border-radius: 50%;
+}
+  .sello{
+	position: relative;
+	grid-area: img;
+  }
+
+  .sello__img{
+
+
+	position: relative;
+	transform: rotate(-15deg);
+	z-index: 2;
+  }
+
+  .circle{
+	width: 80%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--orange);
+    border-radius: 50%;
+    position: absolute;
+	left:50%;
+	transform: translateX(-50%);
+    bottom: -30%;
+    z-index: 1;
+	
+  }
+
+  .inclusion{
+	display: grid;
+	grid-template-areas: "notastitle notas";
+	gap: 2rem;
+	padding: var(--padding-fluid);	
+	grid-template-columns: 1fr 1fr;
+	
+	max-width: 90rem;
+	margin: 0 auto;
+	
+  }
+
+  .inclusion header{
+
 	}
-	.astro-a {
+
+.notas{
+	grid-row: notas;
+	display:grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+	grid-auto-row: 1fr;
+	
+}
+.argentina_container{
+	width: 100%;
+	background-color: var(--blue);
+	
+
+	
+}
+  @media screen and (max-width: 980px){
+	.juegos {
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+	}
+
+	.clientes{
+		grid-template-columns: 1fr;
+		width: 100%;
+		grid-template-areas: 
+		"title"
+		"testimonios";
+	}
+	.buendiseno{
+		grid-template-columns: 1fr;
+		width: 100%;
+		gap: 10rem;
+		grid-template-areas: 
+		"img"
+		"title";
+	}
+	.inclusion{
+	grid-template-areas: 
+	"notastitle" 
+	"notas";
+	grid-template-columns: 1fr;
+	
+  }
+	
+  }
+
+  @media screen and (max-width: 390px){		
+
+	.hero__title{
+		gap: 1rem;
+	}
+
+	.hero__title a{
+		padding: 0.5rem;
+	}
+
+	.fichas-hero{
 		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
+		grid-template-areas: 
+			"ficha-01 ficha-01 ficha-02 ficha-02"
+			"ficha-03 ficha-04 ficha-05 ficha-05";
+		grid-auto-columns: 1fr;
+		grid-auto-rows: 1fr;
+		gap: 1rem;
 	}
+
+	.ficha-01, .ficha-02, .ficha-03, .ficha-04{
+		width: 60%;
+	}
+
+	.ficha-05{
+		width: 40%;
+	
+	}
+  }
+
 </style>

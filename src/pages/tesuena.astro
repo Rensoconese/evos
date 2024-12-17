@@ -267,7 +267,33 @@ const otrosJuegos = [
 </Layout>
 
 <style>
+main {
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 4rem;
+  grid-auto-columns: 1fr;
+  grid-template-areas: 
+    "hero"
+    "frase"
+    "fichas"
+    "contenidocaja"
+    "caja"
+    "diferencias"
+    "testimonios"
+    "dondecompro"
+    "argentina"
+    "otrosjuegos";
+}
+/* Highlight color */
+:global(::selection) {
+  background-color: var(--aqua-dark);
+  color: white;
+}
 
+:global(::-moz-selection) {
+  background-color: var(--aqua-dark);
+  color: white;
+}
 
   /* Estilos generales */
   .tesuena :global(h1),
@@ -486,9 +512,10 @@ const otrosJuegos = [
   grid-area: testimonio3;
   grid-row: testimonio1 / testimonio2;
   max-width: 30rem;
-    width: 100%;
+    
     margin: 0 auto;
     height: 100%;
+    width: calc(100% - 2rem);
 
 }
 

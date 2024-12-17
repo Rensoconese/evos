@@ -8,7 +8,7 @@ const { texto } = Astro.props;
 
 <p class="frase">{texto}</p>
 
-<style>
+<style is:global>
 .frase {
     /* 100px a rem (considerando que 1rem = 16px) */
     /* Usando clamp para hacer el tamaño responsive entre 3rem y 6.25rem */

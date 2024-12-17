@@ -17,5 +17,9 @@
     "astro-seo": "^0.8.4",
     "sharp": "^0.33.5",
     "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "wrangler": "^3.96.0"
   }
+  
 }

@@ -1,0 +1,57 @@
+---
+interface Props {
+    title?: string;
+    linkText?: string;
+    href?: string;
+}
+
+const {
+    title = "Nota en blog español de accesibilidad.",
+    linkText = "Ir a la nota",
+    href = "#"
+} = Astro.props;
+---
+
+<article class="notas-container">
+    <h3>{title}</h3>
+    <a href={href}>{linkText}</a>
+</article>
+
+<style>
+    .notas-container {
+        background-color: var(--violet);
+        border-radius: 8px;
+        padding: 1.5rem;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+    }
+
+    
+
+    .notas-container h3 {
+        color: var(--background-color);
+        margin: 0;
+        font-size: 1.2rem;
+        align-self: center;
+    }
+
+    .notas-container a {
+        background-color: var(--background-color);
+        font-family: var(--text);
+        color: var(--text-color);
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.3s ease;
+        justify-self: end;
+        white-space: nowrap;
+    }
+
+    .notas-container a:hover {
+        background-color: var(--cremita);
+        color: var(--text-color);
+    }
+</style>

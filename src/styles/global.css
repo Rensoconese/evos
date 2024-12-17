@@ -9,7 +9,9 @@
 /* Variables globales */
 :root {
   --aqua: #3AA8A2;
+  --aqua-dark: #2E807D;
   --orange: #FF7400;
+  --orange-dark: #C65F00;
   --violet: #8F66CE;
   --violet-dark: #6235A6;
   --violet-darker: #432573;
@@ -27,6 +29,10 @@
   --titles: "komet", sans-serif;
   --padding-fluid: clamp(1rem, 5vw, 4rem);
 
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Estilos base */
@@ -103,29 +109,3 @@ section {
   padding: 0;
   margin: 0;
 }
-
-/* 
-  The main element is structured as a grid layout with a single column spanning 100% width.
-  The rows are separated by a 4rem gap, and the grid automatically assigns columns of 1fr.
-  The grid-template-areas define the layout of various sections in a vertical manner:
-  "hero", "tablero", "frase", "fichas", "contenidocaja", "caja", "diferencias", 
-  "testimonios", "dondecompro", "argentina", and "otrosjuegos".
-*/
-main {
-  display: grid;
-  grid-template-columns: 100%;
-  row-gap: 4rem;
-  grid-auto-columns: 1fr;
-  grid-template-areas: 
-    "hero"
-    "frase"
-    "fichas"
-    "contenidocaja"
-    "caja"
-    "diferencias"
-    "testimonios"
-    "dondecompro"
-    "argentina"
-    "otrosjuegos";
-}
-

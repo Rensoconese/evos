@@ -178,7 +178,34 @@ const otrosJuegos = [
 </Layout>
 
 <style>
+/* Highlight color */
+:global(::selection) {
+  background-color: var(--blue-dark);
+  color: white;
+}
 
+:global(::-moz-selection) {
+  background-color: var(--blue-dark);
+  color: white;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 4rem;
+  grid-auto-columns: 1fr;
+  grid-template-areas: 
+    "hero"
+    "frase"
+    "fichas"
+    "contenidocaja"
+    "caja"
+    "diferencias"
+    "testimonios"
+    "dondecompro"
+    "argentina"
+    "otrosjuegos";
+}
 
   /* Estilos generales */
   .tesuena :global(h1){

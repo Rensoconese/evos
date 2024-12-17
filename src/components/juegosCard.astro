@@ -1,0 +1,64 @@
+---
+interface Props {
+  imageSrc: ImageMetadata;
+  title: string;
+  subtitle: string;
+  buttonText?: string;
+  href?: string;
+}
+
+import { Image } from 'astro:assets';
+const { imageSrc, title, subtitle, buttonText = "Descubrir", href = "#" } = Astro.props;
+---
+
+<div class="juegoscard">
+  <h3>{title}</h3>
+  <Image src={imageSrc} alt={title} class="juegoscard-image" width={200} height={200} />
+  <p>{subtitle}</p>
+  <a href={href}>{buttonText}</a>
+</div>
+
+<style>
+  .juegoscard {
+    background: var(--background-color);
+    border: 1rem solid;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .juegoscard h3 {
+    grid-row: 2;
+    margin: 0;
+  }
+
+  .juegoscard-image {
+    grid-row: 1;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
+  }
+
+  .juegoscard p {
+    color: var(--text-color);
+    margin: 0;
+  }
+
+  .juegoscard a {
+    background: transparent;
+    font-family: var(--titles);
+    text-transform: uppercase;
+    font-weight: 900;
+    align-self: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+</style>

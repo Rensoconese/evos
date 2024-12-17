@@ -102,17 +102,17 @@ const dondeCompro = {
 const otrosJuegos = [
     {
         nombre: "MEMOTOC",
-        imagen: cajamemotoc.src, 
+        imagen: cajamemotoc, 
         link: "/memotoc"
     },
     {
         nombre: "DOMITOC",
-        imagen: cajadomitoc.src, 
+        imagen: cajadomitoc, 
         link: "/domitoc"
     },
     {
         nombre: "TATETI",
-        imagen: cajatateti.src, 
+        imagen: cajatateti, 
         link: "/tateti"
     }
 ];
@@ -515,15 +515,15 @@ dd {
 .caja-1 {
   grid-area: corte1;
   background-color: var(--aqua);
-  height: auto;
+ 
+ height: auto;
 
 }
-
 .caja-2 {
   grid-area: corte2;
   background-color: var(--cremita);
-  border-radius:4rem 4rem  0 0 ;
-  height: auto;
+  border-radius:4rem 4rem 0 0 ;
+ height: auto;
 
 }
 
@@ -585,8 +585,7 @@ dd {
 .testimonio {
   grid-area: testimonio3;
   grid-row: testimonio1 / testimonio2;
-  max-width: 30rem;
-    
+  max-width: 36rem;
     margin: 0 auto;
     height: 100%;
     width: calc(100% - 2rem);
@@ -600,7 +599,12 @@ dd {
   }
 
 /* Estilos para DONDECOMPRO */
-  
+.dondecompro_container {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        grid-row: dondecompro;
+    }
   .tesuena .donde-compro h2,
   .tesuena .donde-compro p {
     color: var(--background-color);

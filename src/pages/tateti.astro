@@ -41,17 +41,17 @@ const dondeCompro = {
 const otrosJuegos = [
     {
         nombre: "Te suena",
-        imagen: cajatesuena.src, 
+        imagen: cajatesuena, 
         link: "/tesuena"
     },
     {
         nombre: "Memotoc",
-        imagen: cajamemotoc.src, 
+        imagen: cajamemotoc, 
         link: "/memotoc"
     },
     {
         nombre: "Domitoc",
-        imagen: cajadomitoc.src, 
+        imagen: cajadomitoc, 
         link: "/domitoc"
     }
 ];
@@ -456,7 +456,7 @@ dd {
     color: var(--background-color);
   }
 
-.dondecompro_container{ 
+  .dondecompro_container{ 
   display: grid;
        place-items: center;
     width: 100%; 
@@ -465,6 +465,43 @@ dd {
    transform: translateY(4rem);
    padding-bottom: 4rem;
 } 
+.donde-compro {
+        display: grid;
+        text-align: center;
+        width: calc(100% - 2rem);
+        max-width: 36rem;
+        gap: 1rem;
+        margin: 0 auto;
+    }
+
+    .canales {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .canal {
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease;
+        width: clamp(100px, 40vw, 200px);
+        height: clamp(100px, 40vw, 200px);
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .canal:hover {
+        transform: translateY(-4px);
+    }
+
+    .canal img {
+        width: auto;
+    }
 
   /* Estilos para HechoEnArgentina */
 

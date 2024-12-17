@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
     juegos: {
         nombre: string;
-        imagen: string;
+        imagen: ImageMetadata;
         link: string;
     }[];
 }
@@ -19,7 +21,12 @@ const { juegos } = Astro.props;
                 <div class="juego-item">
                 <a href={juego.link} class="juego-item">
                     <p>{juego.nombre}</p>
-                    <img src={juego.imagen} alt={juego.nombre} />
+                    <Image 
+                        src={juego.imagen} 
+                        alt={juego.nombre}
+                        width={250}
+                        height={250}
+                    />
                 </a>
                 </div>
             ))
@@ -64,14 +71,6 @@ const { juegos } = Astro.props;
 
     .juego-item a:hover {
         transform: scale(1.05);
-    }
-
-    .juego-item img {
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-        
-
     }
 
     .juego-item p {

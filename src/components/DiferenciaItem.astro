@@ -1,5 +1,5 @@
 ---
-import { Picture } from 'astro:assets';
+import { Image } from 'astro:assets';
 
 interface Props {
     titulo: string;
@@ -19,12 +19,11 @@ const { titulo, bajada, imagenAlt, imagen, flecha, invertido = false } = Astro.p
         <p>{bajada}</p>
     </div>
     <div class="pieza">
-        <Picture
+        <Image
             src={imagen}
             alt={imagenAlt}
-            widths={[320, 360]}
-            sizes="(max-width: 360px) 320px, 360px"
-            formats={['webp', 'avif', 'png']}
+            width={360}
+            height={360}
             class="pieza__item"
         />
     </div>
